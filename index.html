@@ -241,11 +241,28 @@ section{padding:clamp(80px,13vh,150px) 0;position:relative}
   radial-gradient(120% 90% at 20% 0%,rgba(125,211,192,.10),transparent 60%),var(--bg-2)}
 
 /* ─────────────────────────────  experience  ───────────────────────────── */
-.roles{border-top:1px solid var(--line-2)}
-.role{display:grid;grid-template-columns:150px 1fr auto;gap:clamp(16px,3vw,44px);
-  padding:30px 0;border-bottom:1px solid var(--line-2);align-items:start;transition:.4s}
+.roles{--rgap:clamp(16px,3vw,44px);--railx:calc(150px + var(--rgap)/2);
+  position:relative;border-top:1px solid var(--line-2)}
+/* the spine */
+.roles::before{content:"";position:absolute;left:var(--railx);top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,transparent,var(--line) 4%,var(--line) 92%,transparent);
+  pointer-events:none}
+.role{position:relative;display:grid;grid-template-columns:150px 1fr auto;gap:var(--rgap);
+  padding:34px 0;border-bottom:1px solid var(--line-2);align-items:start;transition:.4s}
+.role:last-child{border-bottom:0}
 .role:hover{background:linear-gradient(90deg,rgba(125,211,192,.05),transparent 60%)}
-@media(max-width:820px){.role{grid-template-columns:1fr;gap:8px;padding:26px 0}}
+/* node on the spine, aligned with the company name */
+.role::before{content:"";position:absolute;left:var(--railx);top:42px;
+  width:9px;height:9px;margin-left:-4px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--accent);opacity:.65;
+  transition:opacity .4s,background .4s,box-shadow .4s}
+.role:hover::before{opacity:1;background:var(--accent)}
+.role:first-child::before{opacity:1;background:var(--accent);box-shadow:0 0 0 5px var(--accent-dim)}
+@media(max-width:820px){
+  .roles{--railx:4px}
+  .role{grid-template-columns:1fr;gap:8px;padding:26px 0 26px 26px}
+  .role::before{top:30px}
+}
 .role .when{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;color:var(--fg-faint);
   padding-top:6px;white-space:nowrap}
 .role h4{font-size:1.12rem;font-weight:500;margin:0 0 3px;letter-spacing:-.01em}
@@ -382,11 +399,12 @@ footer a:hover{color:var(--accent)}
       <div class="role rv">
         <div class="when">04/2026 — Present</div>
         <div>
-          <h4>Intuit <small>· Contract</small></h4>
+          <h4>Intuit</h4>
           <div class="what">Software Engineer — GenAI, LLM agent infrastructure</div>
           <p>
-            I work in Intuit's GenAI org, on the infrastructure underneath the customer-facing agents.
-            Most of my time has gone into migrating a legacy multi-agent architecture onto a modular,
+            I work in Intuit's GenAI org, on the infrastructure underneath the customer-facing agents
+            in <b>TurboTax</b>. Most of my time has gone into migrating a legacy multi-agent
+            architecture onto a modular,
             <b>skill-based framework</b> — pulling monolithic agent logic apart into composable skills
             that can be tested on their own. The point of that work is unglamorous but real: changing
             one agent behavior shouldn't mean re-validating all of them.
@@ -410,7 +428,7 @@ footer a:hover{color:var(--accent)}
       <div class="role rv">
         <div class="when">01/2026 — 04/2026</div>
         <div>
-          <h4>LINQ Labs <small>· for OpenArt</small></h4>
+          <h4>OpenArt</h4>
           <div class="what">Software Engineer — generative video quality</div>
           <p>
             Three months on the <a class="inline" href="#work">OpenArt</a> build, working on output
@@ -454,6 +472,16 @@ footer a:hover{color:var(--accent)}
       </div>
 
       <div class="role rv">
+        <div class="when">09/2023 — 05/2025</div>
+        <div>
+          <h4>Northeastern University</h4>
+          <div class="what">M.S. Computer Science · GPA 4.0 / 4.0</div>
+          <p>Distributed systems, cloud architecture, networks. Undergrad: B.S. Computer Science, Baylor University (2019–2023).</p>
+        </div>
+        <div class="tagline-r">Education</div>
+      </div>
+
+      <div class="role rv">
         <div class="when">01/2023 — 05/2023</div>
         <div>
           <h4>Baylor University</h4>
@@ -466,16 +494,6 @@ footer a:hover{color:var(--accent)}
           </p>
         </div>
         <div class="tagline-r">Research</div>
-      </div>
-
-      <div class="role rv">
-        <div class="when">2023 — 2025</div>
-        <div>
-          <h4>Northeastern University</h4>
-          <div class="what">M.S. Computer Science · GPA 4.0 / 4.0</div>
-          <p>Distributed systems, cloud architecture, networks. Undergrad: B.S. Computer Science, Baylor University (2019–2023).</p>
-        </div>
-        <div class="tagline-r">Education</div>
       </div>
     </div>
   </div>
@@ -989,11 +1007,10 @@ footer a:hover{color:var(--accent)}
 
   /* marquee */
   var words = ['LLM agents','Agent runtime','Agent orchestration','Skill-based agent frameworks',
-               'Multi-agent systems','LLM-as-a-judge','Eval harnesses','Quality regression testing',
-               'Prompt engineering','RAG','Agent identity &amp; scoped auth','Text-to-video pipelines',
-               'Storyboard generation','Character consistency','Provider-aware prompting',
-               'Veo 3.1','Kling','Gemini','Claude','OpenAI API','SSE streaming',
-               'Real-time computer vision','OpenCV'];
+               'Composable agent skills','Multi-agent architecture','Tool use','LLM-as-a-judge',
+               'Eval harnesses','Quality regression testing','Prompt engineering','RAG',
+               'Agent identity &amp; scoped auth','Feature-flagged rollouts','Fallback &amp; retry paths',
+               'Agent observability','Incident tracing','Claude','Gemini','OpenAI API'];
   var mq = document.getElementById('mq');
   if(mq){
     var html = words.map(function(w){ return '<span>'+w+'</span>'; }).join('');
