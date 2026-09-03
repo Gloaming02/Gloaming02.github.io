@@ -20,8 +20,8 @@
   --line:rgba(255,255,255,.10);
   --line-2:rgba(255,255,255,.06);
   --fg:#ece9e3;
-  --fg-dim:#9a978f;
-  --fg-faint:#5f5d58;
+  --fg-dim:#b6b2aa;
+  --fg-faint:#7d7a73;
   --accent:#7dd3c0;
   --accent-dim:rgba(125,211,192,.16);
   --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
@@ -215,7 +215,7 @@ section{padding:clamp(80px,13vh,150px) 0;position:relative}
 .proj h3 a:hover{color:var(--accent);background-size:100% 1px}
 .proj .kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
   color:var(--accent);margin-bottom:16px}
-.proj p{color:var(--fg-dim);font-size:.97rem;margin:0 0 18px;max-width:52ch}
+.proj p{color:var(--fg-dim);font-size:.97rem;line-height:1.72;margin:0 0 18px;max-width:50ch}
 .role-note{font-family:var(--mono);font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--fg-faint);border-left:1px solid var(--accent);padding-left:11px;margin-bottom:18px}
 .proj p b{color:var(--fg);font-weight:500}
@@ -262,7 +262,7 @@ section{padding:clamp(80px,13vh,150px) 0;position:relative}
 .role h4 small{color:var(--fg-faint);font-weight:300;font-size:.82rem;letter-spacing:0}
 .role .what{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
   color:var(--accent);margin-bottom:10px}
-.role p{margin:0 0 13px;color:var(--fg-dim);font-size:.95rem;line-height:1.72;max-width:68ch}
+.role p{margin:0 0 20px;color:var(--fg-dim);font-size:.95rem;line-height:1.75;max-width:58ch}
 .role p:last-child{margin-bottom:0}
 .role p b{color:var(--fg);font-weight:500}
 .role p code{font-family:var(--mono);font-size:.86em;color:var(--fg)}
@@ -300,7 +300,7 @@ div.tile:hover{border-color:var(--line);transform:none}
 .about-portrait{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
 .about-portrait img{width:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .about-portrait:hover img{transform:scale(1.03)}
-.about-copy p{font-size:clamp(1rem,1.5vw,1.16rem);color:var(--fg-dim);max-width:60ch;margin:0 0 18px}
+.about-copy p{font-size:clamp(1rem,1.5vw,1.14rem);line-height:1.72;color:var(--fg-dim);max-width:56ch;margin:0 0 22px}
 .about-copy p b{color:var(--fg);font-weight:500}
 .about-copy .lead{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.25;
   color:var(--fg);letter-spacing:-.01em;margin-bottom:26px}
@@ -361,10 +361,9 @@ footer a:hover{color:var(--accent)}
     </h1>
     <div class="hero-foot">
       <p class="tagline">
-        I build the plumbing behind <b>LLM agents</b>, and above all the <b>evaluation</b>
-        layer — harnesses that tell you whether an agent actually got better or just got
-        different. Around that: agent runtime, composable skills, and the reliability work
-        that turns a demo into something you can page someone about.
+        I build production <b>LLM agent systems</b> — composable skills, tool use, agent
+        runtime — and the <b>evaluation</b> workflows that show whether a change made them
+        better or merely different.
       </p>
       <div class="meta">
         <div><span class="dot"></span><span class="on">Open to opportunities</span></div>
@@ -386,7 +385,7 @@ footer a:hover{color:var(--accent)}
     <div class="sec-head rv">
       <span class="sec-num">01</span>
       <h2 class="sec-title">Experience</h2>
-      <span class="sec-note">2023 — present</span>
+      <span class="sec-note">2024 — present</span>
     </div>
 
     <div class="roles">
@@ -396,27 +395,28 @@ footer a:hover{color:var(--accent)}
           <h4>Intuit <small>· Mountain View, CA</small></h4>
           <div class="what">Software Engineer — TurboTax AI Agent Platform</div>
           <p>
-            Most of what I do is <b>evaluation</b>, and it runs the length of the release rather than
-            sitting at the end of it — an <b>LLM-as-a-judge</b> framework scoring accuracy, relevance,
-            completeness and coherence, end-to-end runs in the development environment before a change
-            ships and again against the production environment after, and <b>routing checks</b>
-            that catch a personalized question going to a general-purpose skill. Some of it is scoring
-            what the agent should <i>refuse</i>: ask a tax assistant to debug your code and the correct
-            answer is no, which is harder to grade than a good answer is. Most of the time the eval is
-            the <b>debugger</b>: a failing case hands you a diagnosis, not a grade.
+            I work on the agent platform behind TurboTax's AI experiences — composable skills, tool
+            use, and the <b>evaluation</b> around them. Evaluation runs the length of the release
+            rather than sitting at the end of it.
           </p>
           <p>
-            With an AI scientist I built a shared eval library and tuned routing evaluation to
-            <b>80–85% parity</b> with the production planner/router — an offline eval nobody trusts is
-            worse than none. It doesn't stop at launch either: we sample real traffic back out of
-            <b>production monitoring</b> and keep scoring against it.
+            An <b>LLM-as-a-judge</b> framework scores output on accuracy, relevance, completeness and
+            coherence. End-to-end runs happen in the development environment before a change ships,
+            and against production after. Routing checks catch a personalized question going to a
+            general-purpose skill. With an AI scientist I built a shared eval library so teams measure
+            the same way.
           </p>
           <p>
-            The platform has two audiences, and only one of them is a taxpayer. TurboTax users get the
-            agent; <b>the engineers building on it are the other customer</b>. I wrote the first skill on
-            the platform, then turned it into a <b>self-service authoring framework</b> — templates,
-            metadata-driven routing, evaluation guidance built in — so other teams could ship skills
-            without coming through me, and migrated a legacy multi-agent system onto modular,
+            Some of it is scoring what the agent should <i>refuse</i> — ask a tax assistant to debug
+            your code and the correct answer is no, which is harder to grade than a good answer.
+            Once an agent is stable we sample real traffic back out of production monitoring and keep
+            scoring it. Most of the time the eval is the <b>debugger</b>: a failing case hands you a
+            diagnosis, not a grade.
+          </p>
+          <p>
+            The platform has two customers, and only one is a taxpayer. I wrote the first skill on it,
+            then turned that into a <b>self-service authoring framework</b> so other teams could ship
+            without coming through me. I also migrated a legacy multi-agent system onto modular,
             independently testable skills behind scoped agent identity and feature flags.
           </p>
         </div>
@@ -528,125 +528,6 @@ footer a:hover{color:var(--accent)}
 
     <div class="work">
 
-      <!-- OpenArt -->
-      <article class="proj rv">
-        <span class="proj-media">
-          <img src="assets/openart-wizard.png" alt="OpenArt project wizard: video concept, character input mode, director model and video provider selection">
-          <span class="veil"></span>
-        </span>
-        <div class="proj-body">
-          <div class="proj-idx">01 — Product</div>
-          <div class="kicker">Text-to-video platform · shipped and handed off</div>
-          <h3>OpenArt</h3>
-          <div class="role-note">One of the engineers on the build</div>
-          <p>
-            A text-to-video platform that turns one prompt into a multi-scene film. An LLM
-            <b>director</b> refines your concept, a storyboard module breaks it into scenes, and
-            <b>character anchors</b> generated up front keep the same face and style across every shot.
-            Keyframe extraction stitches scenes into smooth transitions; ffmpeg assembles the cut.
-          </p>
-          <p>
-            The interesting engineering is in the seams: framework-agnostic generation modules shared by
-            the API and a CLI pipeline, <b>provider-aware prompt composition</b> (verbose for Veo, a
-            2,500-character budget for Kling), and long-running generation streamed to the browser over
-            <b>Server-Sent Events</b>.
-          </p>
-          <div class="stack"><span>FastAPI</span><span>React · TypeScript</span><span>Gemini / Veo 3.1</span><span>Kling</span><span>Claude</span><span>SSE</span><span>ffmpeg</span><span>Auto-rater eval</span><span>Postgres</span><span>GCS</span></div>
-        </div>
-      </article>
-
-      <!-- texas hold'em -->
-      <article class="proj rv">
-        <a class="proj-media" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
-          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: a decision node branching into fold, call and raise, each fanning out into Monte Carlo rollouts with an average return">
-            <!-- root -->
-            <rect x="300" y="40" width="200" height="52" rx="9" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.42)"/>
-            <text x="400" y="63" font-family="monospace" font-size="21" fill="#ece9e3" text-anchor="middle">hand + board</text>
-            <text x="400" y="82" font-family="monospace" font-size="18" fill="#8f8c84" text-anchor="middle">opponent hidden</text>
-
-            <!-- branches -->
-            <g stroke="#7dd3c0" stroke-width="1.3" opacity=".75" fill="none">
-              <path d="M400 92 C400 130 170 120 150 158"/>
-              <path d="M400 92 V158"/>
-              <path d="M400 92 C400 130 630 120 650 158"/>
-            </g>
-            <g fill="#7dd3c0">
-              <path d="M145 152 l8 8 -11 3 z"/><path d="M395 152 l5 8 5 -8 z"/><path d="M655 152 l-8 8 11 3 z"/>
-            </g>
-
-            <!-- actions -->
-            <g font-family="monospace" font-size="21" text-anchor="middle">
-              <rect x="80" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="150" y="186" fill="#cbc8c2">fold</text>
-              <rect x="330" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="400" y="186" fill="#cbc8c2">call</text>
-              <rect x="580" y="160" width="140" height="40" rx="8" fill="rgba(125,211,192,.14)" stroke="#7dd3c0"/>
-              <text x="650" y="186" fill="#ece9e3">raise</text>
-            </g>
-
-            <!-- rollout fans -->
-            <g stroke="rgba(255,255,255,.26)" stroke-width="1" fill="none">
-              <path d="M150 200 L96 288 M150 200 L123 288 M150 200 L150 288 M150 200 L177 288 M150 200 L204 288"/>
-              <path d="M400 200 L346 288 M400 200 L373 288 M400 200 L400 288 M400 200 L427 288 M400 200 L454 288"/>
-            </g>
-            <g stroke="rgba(125,211,192,.45)" stroke-width="1" fill="none">
-              <path d="M650 200 L596 288 M650 200 L623 288 M650 200 L650 288 M650 200 L677 288 M650 200 L704 288"/>
-            </g>
-            <g fill="#8f8c84">
-              <circle cx="96" cy="294" r="4"/><circle cx="123" cy="294" r="4"/><circle cx="150" cy="294" r="4"/>
-              <circle cx="177" cy="294" r="4"/><circle cx="204" cy="294" r="4"/>
-              <circle cx="346" cy="294" r="4"/><circle cx="373" cy="294" r="4"/><circle cx="400" cy="294" r="4"/>
-              <circle cx="427" cy="294" r="4"/><circle cx="454" cy="294" r="4"/>
-            </g>
-            <g fill="#7dd3c0">
-              <circle cx="596" cy="294" r="4"/><circle cx="623" cy="294" r="4"/><circle cx="650" cy="294" r="4"/>
-              <circle cx="677" cy="294" r="4"/><circle cx="704" cy="294" r="4"/>
-            </g>
-
-            <text x="400" y="336" font-family="monospace" font-size="19" fill="#8f8c84" text-anchor="middle">
-              deal the unseen cards · play to showdown · hundreds of times per path
-            </text>
-
-            <!-- returns -->
-            <line x1="60" y1="368" x2="740" y2="368" stroke="rgba(255,255,255,.42)"/>
-            <text x="60" y="392" font-family="monospace" font-size="18" fill="#8f8c84">average chip return</text>
-            <g>
-              <rect x="100" y="404" width="42" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
-              <rect x="350" y="404" width="86" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
-              <rect x="600" y="404" width="128" height="9" rx="4" fill="#7dd3c0"/>
-            </g>
-            <text x="650" y="440" font-family="monospace" font-size="19" fill="#7dd3c0" text-anchor="middle">take this branch</text>
-          </svg>
-          <span class="veil"></span>
-          <span class="peek">View repository ↗</span>
-        </a>
-        <div class="proj-body">
-          <div class="proj-idx">02 — AI</div>
-          <div class="kicker">CS 5100 · decision-making under hidden information</div>
-          <h3><a href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em Agents</a></h3>
-          <div class="role-note">Two-person project · engine, agents and evaluation built from scratch</div>
-          <p>
-            Chess is tractable because you can see the board; poker is not. We built a two-player
-            Hold'em engine from scratch and put five agents on it — random, never-fold, rule-based, a
-            <b>Monte Carlo hand-strength estimator</b>, and an <b>MCTS</b> player that simulates
-            forward and takes the branch with the best average return.
-          </p>
-          <p>
-            The finding was about the <b>benchmark</b>, not the agents. Our first harness scored a fold
-            as a loss, so over 10,000 hands the rule-based player came out level with one that never
-            folds — which cannot be true. The metric was wrong: counting folds as losses made
-            disciplined folding invisible. Rebuilt around chip depletion, the ranking inverted. MCTS
-            then placed third, behind the simpler estimator and against our own hypothesis — and we
-            reported that rather than tuning until the numbers agreed with us.
-          </p>
-          <div class="stack"><span>Python</span><span>Monte Carlo tree search</span><span>Hand-strength estimation</span><span>Imperfect information</span><span>Benchmark design</span></div>
-          <a class="golink" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
-            github.com/maxwell142857/texas_holdem
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
-          </a>
-        </div>
-      </article>
-
       <!-- online forum -->
       <article class="proj rv">
         <span class="proj-media">
@@ -731,7 +612,7 @@ footer a:hover{color:var(--accent)}
           <span class="veil"></span>
         </span>
         <div class="proj-body">
-          <div class="proj-idx">03 — Backend</div>
+          <div class="proj-idx">01 — Backend</div>
           <div class="kicker">Six-person team · Spring Cloud microservices</div>
           <h3>Online Forum</h3>
           <div class="role-note">Worked across the services, and reviewed the rest</div>
@@ -754,6 +635,207 @@ footer a:hover{color:var(--accent)}
             can never block a user's request.
           </p>
           <div class="stack"><span>Java</span><span>Spring Boot</span><span>Spring Cloud Gateway</span><span>Eureka</span><span>RabbitMQ</span><span>JWT</span><span>MySQL · MongoDB</span><span>AWS S3</span><span>React 18</span></div>
+        </div>
+      </article>
+
+      <!-- mini-distributed-kv -->
+      <article class="proj rv">
+        <a class="proj-media" href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">
+          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: write path through WAL and memtable into SSTables, with leader-to-follower replication">
+            <g font-family="monospace" font-size="22" fill="#cbc8c2">
+              <!-- write path -->
+              <text x="48" y="56" fill="#7dd3c0" font-size="20">LEADER</text>
+              <rect x="44" y="72" width="150" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="62" y="103">PUT k,v</text>
+
+              <path d="M194 98 H250" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
+              <path d="M244 93 l8 5 -8 5 z" fill="#7dd3c0"/>
+
+              <rect x="252" y="72" width="176" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="270" y="97">WAL append</text>
+              <text x="270" y="114" font-size="18" fill="#8f8c84">crc32 · fsync</text>
+
+              <path d="M340 124 V166" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
+              <path d="M335 160 l5 8 5 -8 z" fill="#7dd3c0"/>
+
+              <rect x="252" y="168" width="176" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="270" y="193">memtable</text>
+              <text x="270" y="210" font-size="18" fill="#8f8c84">sorted, in-memory</text>
+
+              <path d="M340 220 V262" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
+              <path d="M335 256 l5 8 5 -8 z" fill="#7dd3c0"/>
+              <text x="352" y="248" font-size="18" fill="#8f8c84">flush</text>
+
+              <!-- sstables -->
+              <text x="252" y="288" fill="#7dd3c0" font-size="20">SSTABLES · immutable</text>
+              <rect x="252" y="296" width="252" height="30" rx="5" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.34)"/>
+              <text x="266" y="317" font-size="17">L0 — recent</text>
+              <rect x="252" y="332" width="252" height="30" rx="5" fill="rgba(125,211,192,.07)" stroke="rgba(255,255,255,.32)"/>
+              <text x="266" y="353" font-size="17">L1 — compacted</text>
+              <rect x="252" y="368" width="252" height="30" rx="5" fill="rgba(125,211,192,.04)" stroke="rgba(255,255,255,.42)"/>
+              <text x="266" y="389" font-size="17">L2 — tombstones dropped</text>
+
+              <!-- replication -->
+              <path d="M428 98 H556" stroke="#7dd3c0" stroke-width="1.4" opacity=".8" stroke-dasharray="4 4"/>
+              <path d="M550 93 l8 5 -8 5 z" fill="#7dd3c0"/>
+              <text x="462" y="88" font-size="18" fill="#8f8c84">TCP</text>
+
+              <text x="560" y="56" fill="#7dd3c0" font-size="20">FOLLOWERS</text>
+              <rect x="556" y="72" width="196" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="574" y="99" font-size="20">replica 1 — ack</text>
+              <rect x="556" y="124" width="196" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="574" y="151" font-size="20">replica 2 — ack</text>
+              <text x="556" y="198" font-size="16" fill="#8f8c84">length-prefixed framing</text>
+              <text x="556" y="222" font-size="16" fill="#8f8c84">semi-sync: N acks</text>
+
+              <!-- recovery -->
+              <rect x="556" y="296" width="234" height="98" rx="7" fill="none" stroke="rgba(255,255,255,.32)" stroke-dasharray="4 4"/>
+              <text x="574" y="324" font-size="20" fill="#7dd3c0">crash recovery</text>
+              <text x="574" y="350" font-size="17">replay WAL →</text>
+              <text x="574" y="374" font-size="17">stop at corrupt tail</text>
+            </g>
+          </svg>
+          <span class="veil"></span>
+          <span class="peek">View repository ↗</span>
+        </a>
+        <div class="proj-body">
+          <div class="proj-idx">02 — Systems</div>
+          <div class="kicker">C++17 · no third-party dependencies</div>
+          <h3><a href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">mini-distributed-kv</a></h3>
+          <p>
+            A key-value store built from the storage engine up, because the fastest way to understand
+            a database is to write one. <b>LSM-style</b> storage: a CRC32-checked binary write-ahead log,
+            a sorted memtable, immutable SSTables, and tombstone-aware compaction.
+          </p>
+          <p>
+            Recovery replays the WAL and <b>stops safely at a corrupt tail</b> instead of guessing.
+            On top sits static leader–follower replication over length-prefixed TCP, with optional
+            semi-synchronous acks when you want durability over latency.
+          </p>
+          <div class="stack"><span>C++17</span><span>WAL / LSM</span><span>SSTable compaction</span><span>Replication</span><span>Raw TCP</span></div>
+          <a class="golink" href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">
+            github.com/Gloaming02/mini-distributed-kv-cpp
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- texas hold'em -->
+      <article class="proj rv">
+        <a class="proj-media" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
+          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: a decision node branching into fold, call and raise, each fanning out into Monte Carlo rollouts with an average return">
+            <!-- root -->
+            <rect x="300" y="40" width="200" height="52" rx="9" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.42)"/>
+            <text x="400" y="63" font-family="monospace" font-size="21" fill="#ece9e3" text-anchor="middle">hand + board</text>
+            <text x="400" y="82" font-family="monospace" font-size="18" fill="#8f8c84" text-anchor="middle">opponent hidden</text>
+
+            <!-- branches -->
+            <g stroke="#7dd3c0" stroke-width="1.3" opacity=".75" fill="none">
+              <path d="M400 92 C400 130 170 120 150 158"/>
+              <path d="M400 92 V158"/>
+              <path d="M400 92 C400 130 630 120 650 158"/>
+            </g>
+            <g fill="#7dd3c0">
+              <path d="M145 152 l8 8 -11 3 z"/><path d="M395 152 l5 8 5 -8 z"/><path d="M655 152 l-8 8 11 3 z"/>
+            </g>
+
+            <!-- actions -->
+            <g font-family="monospace" font-size="21" text-anchor="middle">
+              <rect x="80" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="150" y="186" fill="#cbc8c2">fold</text>
+              <rect x="330" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="400" y="186" fill="#cbc8c2">call</text>
+              <rect x="580" y="160" width="140" height="40" rx="8" fill="rgba(125,211,192,.14)" stroke="#7dd3c0"/>
+              <text x="650" y="186" fill="#ece9e3">raise</text>
+            </g>
+
+            <!-- rollout fans -->
+            <g stroke="rgba(255,255,255,.26)" stroke-width="1" fill="none">
+              <path d="M150 200 L96 288 M150 200 L123 288 M150 200 L150 288 M150 200 L177 288 M150 200 L204 288"/>
+              <path d="M400 200 L346 288 M400 200 L373 288 M400 200 L400 288 M400 200 L427 288 M400 200 L454 288"/>
+            </g>
+            <g stroke="rgba(125,211,192,.45)" stroke-width="1" fill="none">
+              <path d="M650 200 L596 288 M650 200 L623 288 M650 200 L650 288 M650 200 L677 288 M650 200 L704 288"/>
+            </g>
+            <g fill="#8f8c84">
+              <circle cx="96" cy="294" r="4"/><circle cx="123" cy="294" r="4"/><circle cx="150" cy="294" r="4"/>
+              <circle cx="177" cy="294" r="4"/><circle cx="204" cy="294" r="4"/>
+              <circle cx="346" cy="294" r="4"/><circle cx="373" cy="294" r="4"/><circle cx="400" cy="294" r="4"/>
+              <circle cx="427" cy="294" r="4"/><circle cx="454" cy="294" r="4"/>
+            </g>
+            <g fill="#7dd3c0">
+              <circle cx="596" cy="294" r="4"/><circle cx="623" cy="294" r="4"/><circle cx="650" cy="294" r="4"/>
+              <circle cx="677" cy="294" r="4"/><circle cx="704" cy="294" r="4"/>
+            </g>
+
+            <text x="400" y="336" font-family="monospace" font-size="19" fill="#8f8c84" text-anchor="middle">
+              deal the unseen cards · play to showdown · hundreds of times per path
+            </text>
+
+            <!-- returns -->
+            <line x1="60" y1="368" x2="740" y2="368" stroke="rgba(255,255,255,.42)"/>
+            <text x="60" y="392" font-family="monospace" font-size="18" fill="#8f8c84">average chip return</text>
+            <g>
+              <rect x="100" y="404" width="42" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
+              <rect x="350" y="404" width="86" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
+              <rect x="600" y="404" width="128" height="9" rx="4" fill="#7dd3c0"/>
+            </g>
+            <text x="650" y="440" font-family="monospace" font-size="19" fill="#7dd3c0" text-anchor="middle">take this branch</text>
+          </svg>
+          <span class="veil"></span>
+          <span class="peek">View repository ↗</span>
+        </a>
+        <div class="proj-body">
+          <div class="proj-idx">03 — AI</div>
+          <div class="kicker">CS 5100 · decision-making under hidden information</div>
+          <h3><a href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em Agents</a></h3>
+          <div class="role-note">Two-person project · engine, agents and evaluation built from scratch</div>
+          <p>
+            Chess is tractable because you can see the board; poker is not. We built a two-player
+            Hold'em engine from scratch and put five agents on it — random, never-fold, rule-based, a
+            <b>Monte Carlo hand-strength estimator</b>, and an <b>MCTS</b> player that simulates
+            forward and takes the branch with the best average return.
+          </p>
+          <p>
+            The finding was about the <b>benchmark</b>, not the agents. Our first harness scored a fold
+            as a loss, so over 10,000 hands the rule-based player came out level with one that never
+            folds — which cannot be true. The metric was wrong: counting folds as losses made
+            disciplined folding invisible. Rebuilt around chip depletion, the ranking inverted. MCTS
+            then placed third, behind the simpler estimator and against our own hypothesis — and we
+            reported that rather than tuning until the numbers agreed with us.
+          </p>
+          <div class="stack"><span>Python</span><span>Monte Carlo tree search</span><span>Hand-strength estimation</span><span>Imperfect information</span><span>Benchmark design</span></div>
+          <a class="golink" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
+            github.com/maxwell142857/texas_holdem
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- OpenArt -->
+      <article class="proj rv">
+        <span class="proj-media">
+          <img src="assets/openart-wizard.png" alt="OpenArt project wizard: video concept, character input mode, director model and video provider selection">
+          <span class="veil"></span>
+        </span>
+        <div class="proj-body">
+          <div class="proj-idx">04 — Product</div>
+          <div class="kicker">Text-to-video platform · shipped and handed off</div>
+          <h3>OpenArt</h3>
+          <div class="role-note">One of the engineers on the build</div>
+          <p>
+            A text-to-video platform that turns one prompt into a multi-scene film. An LLM
+            <b>director</b> refines your concept, a storyboard module breaks it into scenes, and
+            <b>character anchors</b> generated up front keep the same face and style across every shot.
+            Keyframe extraction stitches scenes into smooth transitions; ffmpeg assembles the cut.
+          </p>
+          <p>
+            The interesting engineering is in the seams: framework-agnostic generation modules shared by
+            the API and a CLI pipeline, <b>provider-aware prompt composition</b> (verbose for Veo, a
+            2,500-character budget for Kling), and long-running generation streamed to the browser over
+            <b>Server-Sent Events</b>.
+          </p>
+          <div class="stack"><span>FastAPI</span><span>React · TypeScript</span><span>Gemini / Veo 3.1</span><span>Kling</span><span>Claude</span><span>SSE</span><span>ffmpeg</span><span>Auto-rater eval</span><span>Postgres</span><span>GCS</span></div>
         </div>
       </article>
 
@@ -821,7 +903,7 @@ footer a:hover{color:var(--accent)}
           <span class="peek">View repository ↗</span>
         </a>
         <div class="proj-body">
-          <div class="proj-idx">04 — Computer vision</div>
+          <div class="proj-idx">05 — Computer vision</div>
           <div class="kicker">Real-time · shipped as a Windows release</div>
           <h3><a href="https://github.com/Gloaming02/nte-rhythm-auto" target="_blank" rel="noopener">nte-rhythm-auto</a></h3>
           <p>
@@ -837,88 +919,6 @@ footer a:hover{color:var(--accent)}
           <div class="stack"><span>Python</span><span>OpenCV</span><span>Win32 / WGC</span><span>Template matching</span><span>PyInstaller</span></div>
           <a class="golink" href="https://github.com/Gloaming02/nte-rhythm-auto" target="_blank" rel="noopener">
             github.com/Gloaming02/nte-rhythm-auto
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <!-- mini-distributed-kv -->
-      <article class="proj rv">
-        <a class="proj-media" href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">
-          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: write path through WAL and memtable into SSTables, with leader-to-follower replication">
-            <g font-family="monospace" font-size="22" fill="#cbc8c2">
-              <!-- write path -->
-              <text x="48" y="56" fill="#7dd3c0" font-size="20">LEADER</text>
-              <rect x="44" y="72" width="150" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="62" y="103">PUT k,v</text>
-
-              <path d="M194 98 H250" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
-              <path d="M244 93 l8 5 -8 5 z" fill="#7dd3c0"/>
-
-              <rect x="252" y="72" width="176" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="270" y="97">WAL append</text>
-              <text x="270" y="114" font-size="18" fill="#8f8c84">crc32 · fsync</text>
-
-              <path d="M340 124 V166" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
-              <path d="M335 160 l5 8 5 -8 z" fill="#7dd3c0"/>
-
-              <rect x="252" y="168" width="176" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="270" y="193">memtable</text>
-              <text x="270" y="210" font-size="18" fill="#8f8c84">sorted, in-memory</text>
-
-              <path d="M340 220 V262" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
-              <path d="M335 256 l5 8 5 -8 z" fill="#7dd3c0"/>
-              <text x="352" y="248" font-size="18" fill="#8f8c84">flush</text>
-
-              <!-- sstables -->
-              <text x="252" y="288" fill="#7dd3c0" font-size="20">SSTABLES · immutable</text>
-              <rect x="252" y="296" width="252" height="30" rx="5" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.34)"/>
-              <text x="266" y="317" font-size="17">L0 — recent</text>
-              <rect x="252" y="332" width="252" height="30" rx="5" fill="rgba(125,211,192,.07)" stroke="rgba(255,255,255,.32)"/>
-              <text x="266" y="353" font-size="17">L1 — compacted</text>
-              <rect x="252" y="368" width="252" height="30" rx="5" fill="rgba(125,211,192,.04)" stroke="rgba(255,255,255,.42)"/>
-              <text x="266" y="389" font-size="17">L2 — tombstones dropped</text>
-
-              <!-- replication -->
-              <path d="M428 98 H556" stroke="#7dd3c0" stroke-width="1.4" opacity=".8" stroke-dasharray="4 4"/>
-              <path d="M550 93 l8 5 -8 5 z" fill="#7dd3c0"/>
-              <text x="462" y="88" font-size="18" fill="#8f8c84">TCP</text>
-
-              <text x="560" y="56" fill="#7dd3c0" font-size="20">FOLLOWERS</text>
-              <rect x="556" y="72" width="196" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="574" y="99" font-size="20">replica 1 — ack</text>
-              <rect x="556" y="124" width="196" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="574" y="151" font-size="20">replica 2 — ack</text>
-              <text x="556" y="198" font-size="16" fill="#8f8c84">length-prefixed framing</text>
-              <text x="556" y="222" font-size="16" fill="#8f8c84">semi-sync: N acks</text>
-
-              <!-- recovery -->
-              <rect x="556" y="296" width="234" height="98" rx="7" fill="none" stroke="rgba(255,255,255,.32)" stroke-dasharray="4 4"/>
-              <text x="574" y="324" font-size="20" fill="#7dd3c0">crash recovery</text>
-              <text x="574" y="350" font-size="17">replay WAL →</text>
-              <text x="574" y="374" font-size="17">stop at corrupt tail</text>
-            </g>
-          </svg>
-          <span class="veil"></span>
-          <span class="peek">View repository ↗</span>
-        </a>
-        <div class="proj-body">
-          <div class="proj-idx">05 — Systems</div>
-          <div class="kicker">C++17 · no third-party dependencies</div>
-          <h3><a href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">mini-distributed-kv</a></h3>
-          <p>
-            A key-value store built from the storage engine up, because the fastest way to understand
-            a database is to write one. <b>LSM-style</b> storage: a CRC32-checked binary write-ahead log,
-            a sorted memtable, immutable SSTables, and tombstone-aware compaction.
-          </p>
-          <p>
-            Recovery replays the WAL and <b>stops safely at a corrupt tail</b> instead of guessing.
-            On top sits static leader–follower replication over length-prefixed TCP, with optional
-            semi-synchronous acks when you want durability over latency.
-          </p>
-          <div class="stack"><span>C++17</span><span>WAL / LSM</span><span>SSTable compaction</span><span>Replication</span><span>Raw TCP</span></div>
-          <a class="golink" href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">
-            github.com/Gloaming02/mini-distributed-kv-cpp
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
           </a>
         </div>
@@ -947,7 +947,6 @@ footer a:hover{color:var(--accent)}
           <div class="stack"><span>Python</span><span>Flask</span><span>Jaeger</span><span>Graph algorithms</span><span>React · D3</span></div>
         </div>
       </article>
-
     </div>
   </div>
 </section>
@@ -1237,18 +1236,11 @@ footer a:hover{color:var(--accent)}
         </p>
 
         <p>
-          <b>Evaluation</b> is the part I've gone deepest on, and I think it gets misread as a report
-          card. A score at the end of a run is the least of what it does. Eval is how you
-          <b>debug</b> an agent — a failing case is a diagnosis, not a grade. It's how quality
-          actually moves, because you cannot improve what you cannot see. And it doesn't end at
-          launch: once an agent is stable, you sample real traffic back out of production and keep
-          scoring it, because what was right last release isn't automatically right this one.
+          Evaluation is the part I've gone deepest on, and the useful thing I've learned about it is
+          this: <b>building the eval harness was never the hard part</b>. Getting it close enough to
+          production that people trust the results and act on them — that's the work.
         </p>
-        <p>
-          Which makes the hard part obvious in hindsight. Building the eval harness was never it.
-          Getting it to agree with production closely enough that people act on what it says — that's
-          the work.
-        </p>
+
         <p>
           Outside work I ship game-automation tools, mostly because a problem you can watch
           succeed or fail on screen is a very honest test.
@@ -1257,7 +1249,7 @@ footer a:hover{color:var(--accent)}
         <div class="facts">
           <div class="fact"><div class="k">Based in</div><div class="v">San Jose, California</div></div>
           <div class="fact"><div class="k">Focused on</div><div class="v">Agent evaluation · Agent runtime · Backend</div></div>
-          <div class="fact"><div class="k">Reach for</div><div class="v">Python · Java · Go · C++ · TypeScript</div></div>
+          <div class="fact"><div class="k">Reach for</div><div class="v">Python · Java</div></div>
           <div class="fact"><div class="k">Status</div><div class="v">Open to opportunities</div></div>
         </div>
       </div>
