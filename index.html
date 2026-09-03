@@ -44,14 +44,26 @@
   .edu-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin:6px 0}
   .edu-row .date{color:var(--muted);font-size:.9rem}
   footer{margin-top:56px;color:var(--muted);font-size:.85rem;text-align:center}
+  .id{display:flex;gap:18px;align-items:center}
+  .id img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:1px solid var(--border);flex:none}
+  figure{margin:14px 0 0}
+  figure img{width:100%;border:1px solid var(--border);border-radius:10px;display:block}
+  figcaption{color:var(--muted);font-size:.82rem;margin-top:6px}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}
+  .gallery figure{margin:0}
 </style>
 </head>
 <body>
 <main>
   <header>
-    <h1>Zhengyan Hu</h1>
-    <div class="role">Software Engineer — LLM Agent Infrastructure</div>
-    <div class="loc">San Jose, CA</div>
+    <div class="id">
+      <img src="assets/portrait.png" alt="Zhengyan Hu">
+      <div>
+        <h1>Zhengyan Hu</h1>
+        <div class="role">Software Engineer — LLM Agent Infrastructure</div>
+        <div class="loc">San Jose, CA</div>
+      </div>
+    </div>
     <nav class="links">
       <a href="mailto:hamlet0913@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/zhengyanhu" target="_blank" rel="noopener">LinkedIn</a>
@@ -107,6 +119,10 @@
         <li>Built an automated detector for architectural anti-patterns in distributed microservice systems, using DFS-based graph algorithms to identify cyclic dependencies and bottlenecks.</li>
         <li>Architected a real-time telemetry pipeline (Python/Flask) ingesting Jaeger trace data to visualize interactions across 37+ microservices.</li>
       </ul>
+      <figure>
+        <img src="assets/microservices-graph.png" alt="Service dependency graph highlighting cyclic dependencies">
+        <figcaption>Custom React visualization: service-dependency graph with cyclic dependencies flagged in red.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -137,6 +153,20 @@
       <li><strong>GitHub Scraper Chrome Extension</strong> (HireBeat, intern) — full-stack extension with a Flask + jQuery backend, JWT auth, and PostgreSQL, deployed on DigitalOcean.</li>
       <li><strong>Ski Finder</strong> — preference-based ski-resort recommender with React + Spring Boot, tested with Spring's framework and deployed on Heroku.</li>
     </ul>
+    <div class="gallery">
+      <figure>
+        <img src="assets/github-scraper.png" alt="GitHub Scraper Chrome Extension UI">
+        <figcaption>GitHub Scraper — login and scraped-profile view</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ski-finder.jpg" alt="Ski Finder map with resort recommendations">
+        <figcaption>Ski Finder — preference panel and map results</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/used-car.png" alt="Used Car Trading System search UI">
+        <figcaption>Used Car Trading System — search and listings</figcaption>
+      </figure>
+    </div>
   </section>
 
   <section class="skills">
