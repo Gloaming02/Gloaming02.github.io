@@ -256,6 +256,9 @@ section{padding:clamp(80px,13vh,150px) 0;position:relative}
 .role p:last-child{margin-bottom:0}
 .role p b{color:var(--fg);font-weight:500}
 .role p code{font-family:var(--mono);font-size:.86em;color:var(--fg)}
+.role p a.inline{color:var(--accent);border-bottom:1px solid rgba(125,211,192,.35);
+  padding-bottom:1px;transition:border-color .3s}
+.role p a.inline:hover{border-color:var(--accent)}
 .role .tagline-r{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--fg-faint);
   text-transform:uppercase;padding-top:7px;white-space:nowrap}
 @media(max-width:820px){.role .tagline-r{display:none}}
@@ -402,6 +405,30 @@ footer a:hover{color:var(--accent)}
           </p>
         </div>
         <div class="tagline-r">Agent runtime · Eval</div>
+      </div>
+
+      <div class="role rv">
+        <div class="when">01/2026 — 04/2026</div>
+        <div>
+          <h4>LINQ Labs <small>· for OpenArt</small></h4>
+          <div class="what">Software Engineer — generative video quality</div>
+          <p>
+            Three months on the <a class="inline" href="#work">OpenArt</a> build, working on output
+            quality rather than plumbing. Generating <i>a</i> clip is the easy part; generating one that
+            holds together is not. A face has to stay the same face across every shot, a visual style has
+            to survive eight scene changes, and the seam between two clips has to not announce itself.
+            That work lives in character and style anchors, environment references, and keyframe
+            extraction that gives the next scene something to start from.
+          </p>
+          <p>
+            The <b>music-video pipeline</b> starts from the song instead of a prompt. Audio analysis
+            pulls tempo, beats and section boundaries out of the track so cuts land on the beat rather
+            than on a timer, and the director pass builds a story arc and a style bible over that
+            timeline — then character generation, keyframe-to-segment mapping, lip sync, and an ffmpeg
+            assembly that lays the original audio back over the cut.
+          </p>
+        </div>
+        <div class="tagline-r">Video quality · MV pipeline</div>
       </div>
 
       <div class="role rv">
