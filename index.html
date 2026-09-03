@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zhengyan Hu — Software Engineer</title>
+<meta name="description" content="Zhengyan Hu — Software engineer specializing in LLM agent infrastructure, backed by a strong distributed-systems and backend foundation.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%99%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1a; --muted:#5c5c5c; --accent:#2563eb;
+    --card:#f6f7f9; --border:#e4e6ea; --maxw:760px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0f1115; --fg:#e8e8e8; --muted:#9aa0a6; --accent:#6ea8fe;
+           --card:#171a20; --border:#272b33; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;}
+  main{max-width:var(--maxw);margin:0 auto;padding:56px 24px 80px}
+  header h1{font-size:2rem;margin:0 0 4px;letter-spacing:-.02em}
+  header .role{color:var(--accent);font-weight:600}
+  header .loc{color:var(--muted);font-size:.95rem;margin-top:2px}
+  .links{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 8px}
+  .links a{color:var(--fg);text-decoration:none;border:1px solid var(--border);
+    padding:6px 12px;border-radius:8px;font-size:.9rem;transition:border-color .15s}
+  .links a:hover{border-color:var(--accent);color:var(--accent)}
+  .summary{color:var(--fg);margin:24px 0 8px}
+  section{margin-top:40px}
+  h2{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:20px}
+  .job{margin-bottom:26px}
+  .job-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px}
+  .job-head .company{font-weight:700}
+  .job-head .date{color:var(--muted);font-size:.9rem;white-space:nowrap}
+  .job .title{color:var(--muted);font-style:italic;font-size:.95rem;margin:2px 0 8px}
+  ul{margin:0;padding-left:1.15rem}
+  li{margin:6px 0}
+  .skills p{margin:8px 0}
+  .skills strong{color:var(--fg)}
+  .edu-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin:6px 0}
+  .edu-row .date{color:var(--muted);font-size:.9rem}
+  footer{margin-top:56px;color:var(--muted);font-size:.85rem;text-align:center}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Zhengyan Hu</h1>
+    <div class="role">Software Engineer — LLM Agent Infrastructure</div>
+    <div class="loc">San Jose, CA</div>
+    <nav class="links">
+      <a href="mailto:hamlet0913@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/zhengyanhu" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Gloaming02" target="_blank" rel="noopener">GitHub</a>
+      <a href="Zhengyan_Hu_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+    </nav>
+    <p class="summary">
+      Software engineer specializing in LLM agent infrastructure — agent runtime, evaluation,
+      and the reliability layers that make agentic systems production-ready. Backed by a strong
+      distributed-systems and backend foundation.
+    </p>
+  </header>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="company">Intuit <span style="font-weight:400;color:var(--muted)">(via Pias Technology, Contract)</span></span>
+        <span class="date">04/2026 – Present</span>
+      </div>
+      <div class="title">Software Engineer — GenAI org, LLM Agent Infrastructure</div>
+      <ul>
+        <li>Migrated a legacy multi-agent architecture to a modular, skill-based agent framework, decomposing monolithic agent logic into composable, independently testable skill components.</li>
+        <li>Built an LLM-as-a-judge evaluation framework scoring agent output on accuracy, relevance, completeness, and coherence, enabling automated quality-regression checks between releases.</li>
+        <li>Integrated agent identity authentication into backend services, exchanging user tokens for scoped service identities via an auth SDK, with a feature-flag-controlled rollout and fallback logging.</li>
+        <li>Decoupled the service-to-service client for agent orchestration from the main request flow, introducing a clean interface boundary that improved modularity and testability.</li>
+        <li>Hardened the release path: added an integration-test stage to the CI/CD pipeline (Jenkins / Argo CD), and built Splunk alerting and log analysis for incident detection and root-cause tracing.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="company">Avary.ai</span>
+        <span class="date">08/2025 – 04/2026</span>
+      </div>
+      <div class="title">Software Engineer</div>
+      <ul>
+        <li>Owned the full lifecycle of a cloud-native AI evaluation pipeline (Spring Boot, OpenAI API) serving 20+ enterprise clients — from design through deployment and on-call operation.</li>
+        <li>Reduced latency 50% and lowered API cost via Redis caching and parallel multi-prompt inference (Java CompletableFuture).</li>
+        <li>Designed a fault-tolerant asynchronous pipeline with AWS SQS (3k+ messages/day) and DLQ-based retry logic, achieving a 99.5% success rate with &lt;2s p95 latency under peak load.</li>
+        <li>Developed RBAC-based access control for sensitive candidate data, enforcing role-based permissions across backend APIs.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <span class="company">Baylor University</span>
+        <span class="date">01/2023 – 05/2023</span>
+      </div>
+      <div class="title">Software Researcher — Distributed Systems / Microservices</div>
+      <ul>
+        <li>Built an automated detector for architectural anti-patterns in distributed microservice systems, using DFS-based graph algorithms to identify cyclic dependencies and bottlenecks.</li>
+        <li>Architected a real-time telemetry pipeline (Python/Flask) ingesting Jaeger trace data to visualize interactions across 37+ microservices.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="job">
+      <div class="job-head">
+        <span class="company">Paxos Distributed Key-Value Store</span>
+        <span class="date">09/2024 – 12/2024</span>
+      </div>
+      <ul>
+        <li>Implemented a fault-tolerant key-value store using the Paxos consensus algorithm (Java RMI), maintaining strong consistency across 5 replicas; stress-tested a Dockerized multi-node cluster with 500+ concurrent requests under simulated partitions and node failures.</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="job-head">
+        <span class="company">Cloud-Based S3 / Object-Storage Monitoring System</span>
+        <span class="date">09/2024 – 12/2024</span>
+      </div>
+      <ul>
+        <li>Architected a serverless monitoring service using SNS/SQS fan-out and AWS Lambda for real-time S3 events; designed DynamoDB GSIs for sub-50ms analytics queries, with CloudWatch-triggered automated remediation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <p><strong>AI / GenAI:</strong> LLM agents, agent runtime &amp; orchestration, LLM-as-a-judge evaluation, prompt engineering, RAG, OpenAI API</p>
+    <p><strong>Languages:</strong> Python, Java, Go, SQL, JavaScript/TypeScript, C/C++</p>
+    <p><strong>Backend &amp; Systems:</strong> Spring Boot, REST APIs, microservices, distributed systems, OOD, data structures &amp; algorithms, JUnit, Git</p>
+    <p><strong>Cloud &amp; DevOps:</strong> AWS (Lambda, S3, SQS/SNS, DynamoDB, CloudWatch, CDK), Docker, CI/CD, Jenkins, Argo CD, Redis, Prometheus</p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu-row">
+      <span><strong>Northeastern University</strong> — M.S. Computer Science, GPA 4.0/4.0</span>
+      <span class="date">09/2023 – 05/2025</span>
+    </div>
+    <div class="edu-row">
+      <span><strong>Baylor University</strong> — B.S. Computer Science</span>
+      <span class="date">09/2019 – 05/2023</span>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Zhengyan Hu · Built with plain HTML, hosted on GitHub Pages
+  </footer>
+</main>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
