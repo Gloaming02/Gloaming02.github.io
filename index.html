@@ -445,13 +445,14 @@ footer a:hover{color:var(--accent)}
         <div class="when">08/2025 — 04/2026</div>
         <div>
           <h4>Avary.ai</h4>
-          <div class="what">Software Engineer — backend &amp; AI pipelines</div>
+          <div class="what">Software Engineer — backend &amp; LLM pipelines</div>
           <p>
-            I owned a cloud-native AI evaluation pipeline end to end — design, deployment, and the pager —
-            built on Spring Boot and the OpenAI API, serving <b>20+ enterprise clients</b>. Halving latency
-            came down to two changes: a Redis cache in front of repeated prompts, and running multi-prompt
-            inference in parallel with <code>CompletableFuture</code> rather than sequentially. The API bill
-            came down with it.
+            I owned a cloud-native <b>candidate-assessment pipeline</b> end to end — design, deployment,
+            and the pager. It ran applicants' AI-interview answers and résumés through LLM scoring for
+            <b>20+ enterprise clients</b> — evaluating people, not models, which is the other sense of the
+            word on this page. Halving latency came down to two changes: a Redis cache in front of repeated
+            prompts, and running multi-prompt inference in parallel with <code>CompletableFuture</code>
+            rather than sequentially. The API bill came down with it.
           </p>
           <p>
             Throughput ran through SQS at roughly <b>3,000 messages a day</b>, with DLQ-backed retries for
