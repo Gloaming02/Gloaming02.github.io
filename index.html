@@ -278,6 +278,7 @@ section{padding:clamp(80px,13vh,150px) 0;position:relative}
 .tile{border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:var(--bg-2);
   display:flex;flex-direction:column;transition:border-color .4s,transform .5s cubic-bezier(.2,.8,.2,1)}
 .tile:hover{border-color:var(--accent);transform:translateY(-4px)}
+div.tile:hover{border-color:var(--line);transform:none}
 .tile .thumb{aspect-ratio:16/10;overflow:hidden;background:#111317;border-bottom:1px solid var(--line-2);
   position:relative}
 .tile .thumb::after{content:"";position:absolute;inset:0;pointer-events:none;
@@ -395,36 +396,23 @@ footer a:hover{color:var(--accent)}
           <h4>Intuit <small>· Mountain View, CA</small></h4>
           <div class="what">Software Engineer — TurboTax AI Agent Platform</div>
           <p>
-            Most of what I do is <b>evaluation</b>, and evaluation is not one script at the end of a
-            run. It stretches the length of the release: an <b>LLM-as-a-judge</b> framework scoring
-            agent output on accuracy, relevance, completeness and coherence; local pre-release runs
-            before a change leaves a laptop; online <b>E2E and PRD runs</b> against the real stack; and
-            <b>routing-correctness checks</b> that catch a personalized question being handed to a
-            general-purpose skill — a failure aggregate accuracy will never show you. Most of the time
-            the eval is the <b>debugger</b>: a failing case doesn't hand you a grade, it hands you a
-            diagnosis — which skill, which route, which step gave up.
+            Most of what I do is <b>evaluation</b>, and it runs the length of the release rather than
+            sitting at the end of it — an <b>LLM-as-a-judge</b> framework scoring accuracy, relevance,
+            completeness and coherence, end-to-end runs in the development environment before a change
+            ships and again against the production environment after, and <b>routing checks</b>
+            that catch a personalized question going to a general-purpose skill. Most of the time the
+            eval is the <b>debugger</b>: a failing case hands you a diagnosis, not a grade.
           </p>
           <p>
-            With an AI scientist I built a <b>shared eval library</b> so teams measure the same way,
-            and tuned the automated routing evaluation until it agreed with the production
-            planner/router <b>80–85%</b> of the time. That number is the whole exercise: an offline
-            eval nobody trusts is worse than no eval, because it hands you confidence you haven't
-            earned. And it doesn't stop at launch — once an agent is stable we pull real traffic out of
-            <b>production monitoring</b>, sample it, and keep scoring against it, so quality stays a
-            measured thing rather than an assumption that ages badly.
+            With an AI scientist I built a shared eval library and tuned routing evaluation to
+            <b>80–85% parity</b> with the production planner/router — an offline eval nobody trusts is
+            worse than none. It doesn't stop at launch either: we sample real traffic back out of
+            <b>production monitoring</b> and keep scoring against it.
           </p>
           <p>
-            I wrote the <b>first skill on the platform</b>, then turned that into a <b>self-service
-            authoring framework</b> — templates, metadata-driven routing, and evaluation guidance built
-            in — so other teams could ship skills without coming through me. One of them is TurboTax
-            CoPilot's general help and FAQ skill, backed by retrieval-augmented search.
-          </p>
-          <p>
-            Underneath all of it: migrating a legacy multi-agent system onto modular, independently
-            testable skills; <b>scoped agent identity authentication</b> on the backend REST services
-            behind a feature flag; standardized error and response envelopes with traceId and agentId
-            lifted into shared middleware; and Jenkins integration-test gates, Argo CD deploys, Splunk
-            alerting and <b>Langfuse tracing</b> so agent behaviour can be diagnosed end to end.
+            I also wrote the <b>first skill on the platform</b> and turned it into a self-service
+            authoring framework, and migrated a legacy multi-agent system onto modular, independently
+            testable skills behind scoped agent identity and feature flags.
           </p>
         </div>
         <div class="tagline-r">Eval pipeline · Agent skills</div>
@@ -436,33 +424,18 @@ footer a:hover{color:var(--accent)}
           <h4>OpenArt</h4>
           <div class="what">Software Engineer — generative video quality</div>
           <p>
-            Three months on the <a class="inline" href="#work">OpenArt</a> build, working on output
-            quality rather than plumbing. Generating <i>a</i> clip is the easy part; generating one that
-            holds together is not. A face has to stay the same face across every shot, a visual style has
-            to survive eight scene changes, and the seam between two clips has to not announce itself.
-            That work lives in character and style anchors, environment references, and keyframe
-            extraction that gives the next scene something to start from.
+            Three months on output quality rather than plumbing. Generating a clip is easy; generating
+            one that holds together is not — the same face across every shot, a style that survives
+            eight scene changes, a seam between clips that doesn't announce itself. That lives in
+            <b>character and style anchors</b> and in keyframe extraction. For music videos the pipeline
+            starts from the song: beats and section boundaries decide where the cuts land.
           </p>
           <p>
-            The <b>music-video pipeline</b> starts from the song instead of a prompt. Audio analysis
-            pulls tempo, beats and section boundaries out of the track so cuts land on the beat rather
-            than on a timer, and the director pass builds a story arc and a style bible over that
-            timeline — then character generation, keyframe-to-segment mapping, lip sync, and an ffmpeg
-            assembly that lays the original audio back over the cut.
-          </p>
-          <p>
-            Every change had to answer to the <b>eval</b>. We built an auto-rater framework that scores
-            the pipeline <b>stage by stage</b> rather than only judging the finished video — separate
-            raters on a 1–5 rubric for the storyline, the character reference, the scene prompt, the
-            keyframes, each generated clip and the final cut, with a second set for music videos
-            covering creative blueprint, shot list, performer reference and sentiment match. Where a
-            number could be <b>measured</b> instead of judged, it was: cut precision against detected
-            beats, and LSE-D / LSE-C for lip sync.
-          </p>
-          <p>
-            Batch runs pull their cases from a sheet and write grades into Postgres, so changing prompt
-            composition or keyframe logic shows up as a score moving on a <i>specific stage</i> —
-            rather than a vague sense that the videos look better this week.
+            Every change had to answer to the <b>eval</b>. We built an auto-rater that scores the
+            pipeline <b>stage by stage</b> — storyline, character reference, keyframes, each clip, the
+            final cut — on a 1–5 rubric, and measured what could be measured rather than judged: cut
+            precision against detected beats, LSE-D / LSE-C for lip sync. A change then shows up as a
+            score moving on a <i>specific stage</i>, not a sense that the videos look better this week.
           </p>
         </div>
         <div class="tagline-r">Auto-raters · Video quality</div>
@@ -847,6 +820,44 @@ footer a:hover{color:var(--accent)}
     </div>
 
     <div class="grid">
+
+      <div class="tile rv">
+        <div class="thumb">
+          <svg class="art" viewBox="0 0 400 250" role="img" aria-label="Forum microservice topology: React front end through a JWT gateway to services, with the message service publishing to RabbitMQ for an email consumer">
+            <g font-family="monospace" font-size="10" fill="#9a978f">
+              <rect x="14" y="104" width="60" height="34" rx="6" fill="none" stroke="rgba(255,255,255,.18)"/>
+              <text x="44" y="125" text-anchor="middle">React</text>
+              <path d="M74 121 H104" stroke="rgba(255,255,255,.28)"/>
+              <rect x="104" y="98" width="70" height="46" rx="6" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.20)"/>
+              <text x="139" y="117" text-anchor="middle">gateway</text>
+              <text x="139" y="132" text-anchor="middle" font-size="9" fill="#5f5d58">JWT</text>
+
+              <path d="M174 108 L206 74" stroke="rgba(255,255,255,.22)"/>
+              <path d="M174 121 L206 121" stroke="rgba(255,255,255,.22)"/>
+              <path d="M174 134 L206 168" stroke="#7dd3c0" opacity=".8"/>
+
+              <rect x="206" y="58" width="76" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.16)"/>
+              <text x="244" y="77" text-anchor="middle">auth · user</text>
+              <rect x="206" y="106" width="76" height="30" rx="5" fill="none" stroke="rgba(255,255,255,.16)"/>
+              <text x="244" y="125" text-anchor="middle">post · reply</text>
+              <rect x="206" y="154" width="76" height="30" rx="5" fill="rgba(125,211,192,.14)" stroke="#7dd3c0"/>
+              <text x="244" y="173" text-anchor="middle" fill="#ece9e3">message</text>
+
+              <path d="M282 169 H310" stroke="#7dd3c0" opacity=".8" stroke-dasharray="3 3"/>
+              <rect x="310" y="154" width="76" height="30" rx="5" fill="rgba(125,211,192,.10)" stroke="#7dd3c0"/>
+              <text x="348" y="173" text-anchor="middle" fill="#ece9e3">email</text>
+              <text x="348" y="200" text-anchor="middle" font-size="9" fill="#7dd3c0">RabbitMQ</text>
+
+              <text x="244" y="34" text-anchor="middle" font-size="9" fill="#5f5d58">Eureka service discovery</text>
+            </g>
+          </svg>
+        </div>
+        <div class="body">
+          <h5>Online Forum — Microservices</h5>
+          <p>Six-person build: React 18 over Spring Boot services, Eureka for discovery, a Spring Cloud Gateway doing JWT auth, MySQL and MongoDB behind. I owned the contact-admin flow end to end — form, JWT-gated endpoint, message service, then RabbitMQ into an email consumer — plus the Spring Cloud config for those services. Private repository.</p>
+          <div class="mini">Spring Boot · RabbitMQ · Eureka</div>
+        </div>
+      </div>
 
       <a class="tile rv" href="https://github.com/Gloaming02/Paxos-Distributed-KeyValueStore" target="_blank" rel="noopener">
         <div class="thumb">
