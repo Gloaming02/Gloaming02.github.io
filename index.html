@@ -392,30 +392,38 @@ footer a:hover{color:var(--accent)}
       <div class="role rv">
         <div class="when">04/2026 — Present</div>
         <div>
-          <h4>Intuit</h4>
-          <div class="what">Software Engineer — GenAI, LLM agent infrastructure</div>
+          <h4>Intuit <small>· Mountain View, CA</small></h4>
+          <div class="what">Software Engineer — TurboTax AI Agent Platform</div>
           <p>
-            I work in Intuit's GenAI org, on the infrastructure underneath the customer-facing agents
-            in <b>TurboTax</b>. Most of my time has gone into migrating a legacy multi-agent
-            architecture onto a modular,
-            <b>skill-based framework</b> — pulling monolithic agent logic apart into composable skills
-            that can be tested on their own. The point of that work is unglamorous but real: changing
-            one agent behavior shouldn't mean re-validating all of them.
+            Most of what I do is <b>evaluation</b>, and evaluation is not one script at the end of a
+            run. It stretches the length of the release: an <b>LLM-as-a-judge</b> framework scoring
+            agent output on accuracy, relevance, completeness and coherence; local pre-release runs
+            before a change leaves a laptop; online <b>E2E and PRD runs</b> against the real stack; and
+            <b>routing-correctness checks</b> that catch a personalized question being handed to a
+            general-purpose skill — a failure aggregate accuracy will never show you.
           </p>
           <p>
-            Alongside it I built an <b>LLM-as-a-judge evaluation framework</b> that scores agent output
-            on accuracy, relevance, completeness and coherence, so quality regressions show up between
-            releases instead of in front of users. I also brought <b>agent identity authentication</b>
-            into the backend services — user tokens exchanged for scoped service identities, rolled out
-            behind a feature flag with fallback logging — and decoupled the service-to-service
-            orchestration client from the main request path so it could be tested in isolation.
+            With an AI scientist I built a <b>shared eval library</b> so teams measure the same way,
+            and tuned the automated routing evaluation until it agreed with the production
+            planner/router <b>80–85%</b> of the time. That number is the whole exercise: an offline
+            eval nobody trusts is worse than no eval, because it hands you confidence you haven't
+            earned.
           </p>
           <p>
-            The rest is release hygiene: an integration-test stage in the Jenkins / Argo CD pipeline,
-            and Splunk alerting and log analysis so an incident has a trail to follow at 3am.
+            I wrote the <b>first skill on the platform</b>, then turned that into a <b>self-service
+            authoring framework</b> — templates, metadata-driven routing, and evaluation guidance built
+            in — so other teams could ship skills without coming through me. One of them is TurboTax
+            CoPilot's general help and FAQ skill, backed by retrieval-augmented search.
+          </p>
+          <p>
+            Underneath all of it: migrating a legacy multi-agent system onto modular, independently
+            testable skills; <b>scoped agent identity authentication</b> on the backend REST services
+            behind a feature flag; standardized error and response envelopes with traceId and agentId
+            lifted into shared middleware; and Jenkins integration-test gates, Argo CD deploys, Splunk
+            alerting and <b>Langfuse tracing</b> so agent behaviour can be diagnosed end to end.
           </p>
         </div>
-        <div class="tagline-r">Agent runtime · Eval</div>
+        <div class="tagline-r">Eval pipeline · Agent skills</div>
       </div>
 
       <div class="role rv">
@@ -1091,10 +1099,10 @@ footer a:hover{color:var(--accent)}
           measurable output, scoped identity, a release path with teeth.
         </p>
         <p>
-          That sits on a systems foundation I keep sharpening on purpose. I've written a storage
-          engine in C++ to understand what a database actually does, implemented Paxos to feel
-          where consensus hurts, and built real-time computer vision that has to hit a
-          <b>16-millisecond budget</b> or miss the note.
+          <b>Evaluation</b> is the part I've gone deepest on. Not a score printed at the end of a run —
+          a pipeline that sits across the whole release, so a regression has somewhere to surface
+          before a user finds it. The hard part was never building the harness; it's getting the
+          harness to agree with production closely enough that people act on what it says.
         </p>
         <p>
           Outside work I ship game-automation tools, mostly because a problem you can watch
@@ -1166,7 +1174,7 @@ footer a:hover{color:var(--accent)}
                'LLM agents','Agent runtime','Agent orchestration','Skill-based agent frameworks',
                'Composable agent skills','Multi-agent architecture','Tool use','Prompt engineering','RAG',
                'Agent identity &amp; scoped auth','Feature-flagged rollouts','Fallback &amp; retry paths',
-               'Agent observability','Incident tracing','Claude','Gemini','OpenAI API'];
+               'Routing evaluation','Agent observability','Langfuse tracing','MCP','Skills &amp; tools','Claude','Gemini','OpenAI API'];
   var mq = document.getElementById('mq');
   if(mq){
     var html = words.map(function(w){ return '<span>'+w+'</span>'; }).join('');
