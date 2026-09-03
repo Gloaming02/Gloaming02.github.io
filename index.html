@@ -471,13 +471,54 @@ footer a:hover{color:var(--accent)}
       </div>
 
       <div class="role rv">
+        <div class="when">Summer 2024</div>
+        <div>
+          <h4>The City Tutors</h4>
+          <div class="what">Software Engineer Intern — Django platform</div>
+          <p>
+            The summer after my first year of the master's, on the <b>Django</b> platform behind a
+            nonprofit that runs free tutoring in New York — the system that pairs volunteer tutors
+            with students and keeps track of what happens after the match. I worked on the matching
+            and profile side, adding an age-range dimension to tutor–tutee pairing end to end, from
+            the form field through the model and its migration.
+          </p>
+        </div>
+        <div class="tagline-r">Python · Django</div>
+      </div>
+
+      <div class="role rv">
         <div class="when">09/2023 — 05/2025</div>
         <div>
           <h4>Northeastern University</h4>
           <div class="what">M.S. Computer Science · GPA 4.0 / 4.0</div>
-          <p>Distributed systems, cloud architecture, networks. Undergrad: B.S. Computer Science, Baylor University (2019–2023).</p>
+          <p>
+            Coursework ran along three tracks: <b>AI</b>, <b>distributed systems</b>, and
+            <b>databases</b>. The AI work ended in a
+            <a class="inline" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em agent</a>
+            — a Monte Carlo tree search player that estimates equity by rollout and has to act on a hand
+            it cannot see, benchmarked against rule-based and never-fold baselines.
+          </p>
+          <p>
+            Distributed systems meant building the things rather than reading about them: Paxos across
+            five replicas, a serverless monitoring pipeline on AWS, transfer and name protocols written
+            from the socket up.
+          </p>
+          <p>
+            The database track I took the long way round — the same used-car marketplace rebuilt three
+            times, once on a
+            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System" target="_blank" rel="noopener">relational schema</a>,
+            once as
+            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System-With-MongoDB" target="_blank" rel="noopener">documents in MongoDB</a>,
+            and once with
+            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System-With-Redis" target="_blank" rel="noopener">Redis</a>
+            in front of it. Rewriting one system against three storage models teaches you more about what
+            a database is <i>for</i> than three unrelated projects would.
+          </p>
+          <p style="color:var(--fg-faint);font-size:.88rem">
+            Undergrad: B.S. Computer Science, Baylor University (2019–2023).
+          </p>
         </div>
-        <div class="tagline-r">Education</div>
+        <div class="tagline-r">AI · Systems · Databases</div>
       </div>
 
       <div class="role rv">
@@ -824,9 +865,9 @@ footer a:hover{color:var(--accent)}
       <a class="tile rv" href="https://github.com/Gloaming02/Used-Car-Trading-System-With-Redis" target="_blank" rel="noopener">
         <div class="thumb"><img src="assets/used-car.png" alt="Used car marketplace search and listings"></div>
         <div class="body">
-          <h5>Used Car Trading System</h5>
-          <p>Listing and filtering marketplace with authentication and a Redis-backed shopping cart that survives session restarts.</p>
-          <div class="mini">Full stack · Redis ↗</div>
+          <h5>Used Car Trading System ×3</h5>
+          <p>One listing-and-filtering marketplace, built three times against three storage models — a relational schema, documents in MongoDB, then Redis in front for a cart that survives session restarts.</p>
+          <div class="mini">SQL · MongoDB · Redis ↗</div>
         </div>
       </a>
 
@@ -954,7 +995,7 @@ footer a:hover{color:var(--accent)}
 <!-- ══════════════════════════  CONTACT  ══════════════════════════ -->
 <section id="contact" class="contact">
   <div class="wrap">
-    <h2 class="big rv">Let's <em>talk</em>.</h2>
+    <h2 class="big rv">Contact</h2>
     <div class="links rv">
       <a href="mailto:hamlet0913@gmail.com">
         <span class="k">Email</span>
