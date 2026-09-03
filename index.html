@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zhengyan Hu — Software Engineer</title>
-<meta name="description" content="Zhengyan Hu — software engineer working on LLM agent infrastructure, generative-video pipelines, and the distributed systems underneath them.">
+<meta name="description" content="Zhengyan Hu — software engineer working on LLM agent infrastructure: agent evaluation, runtime, and the reliability layers that make agentic systems production-ready.">
 <meta property="og:title" content="Zhengyan Hu — Software Engineer">
-<meta property="og:description" content="LLM agent infrastructure, generative-video pipelines, and the distributed systems underneath them.">
+<meta property="og:description" content="Agent evaluation, runtime, and the reliability layers that make agentic systems production-ready.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230a0b0d'/%3E%3Ctext x='50' y='70' font-size='58' font-family='Georgia,serif' fill='%237dd3c0' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -361,16 +361,17 @@ footer a:hover{color:var(--accent)}
 <section class="hero" id="top">
   <div class="glow" id="glow"></div>
   <div class="wrap">
-    <div class="eyebrow">Software Engineer · San Jose, CA</div>
+    <div class="eyebrow">Agent Infrastructure &amp; Evaluation · San Jose, CA</div>
     <h1 class="name">
       <span class="w"><span>Zhengyan</span></span>
       <span class="w"><span><em>Hu</em></span></span>
     </h1>
     <div class="hero-foot">
       <p class="tagline">
-        I build the plumbing behind <b>LLM agents</b> — runtimes, evaluation harnesses,
-        and the reliability layers that turn a demo into something you can page someone about.
-        Lately: <b>generative video pipelines</b> and <b>real-time computer vision</b>.
+        I build the plumbing behind <b>LLM agents</b>, and above all the <b>evaluation</b>
+        layer — harnesses that tell you whether an agent actually got better or just got
+        different. Around that: agent runtime, composable skills, and the reliability work
+        that turns a demo into something you can page someone about.
       </p>
       <div class="meta">
         <div><span class="dot"></span><span class="on">Open to opportunities</span></div>
@@ -512,15 +513,15 @@ footer a:hover{color:var(--accent)}
 
       <!-- OpenArt -->
       <article class="proj feature rv">
-        <a class="proj-media" href="https://github.com/LINQLABS/openart" target="_blank" rel="noopener">
+        <span class="proj-media">
           <img src="assets/openart-wizard.png" alt="OpenArt project wizard: video concept, character input mode, director model and video provider selection">
           <span class="veil"></span>
-          <span class="peek">View repository ↗</span>
-        </a>
+          <span class="peek">Private repository</span>
+        </span>
         <div class="proj-body">
           <div class="proj-idx">01 — Client work</div>
           <div class="kicker">LINQ Labs · built for and delivered to OpenArt</div>
-          <h3><a href="https://github.com/LINQLABS/openart" target="_blank" rel="noopener">OpenArt</a></h3>
+          <h3>OpenArt</h3>
           <div class="role-note">One of the engineers on the build · shipped and handed off</div>
           <p>
             A text-to-video platform that turns one prompt into a multi-scene film. An LLM
@@ -535,10 +536,6 @@ footer a:hover{color:var(--accent)}
             <b>Server-Sent Events</b>.
           </p>
           <div class="stack"><span>FastAPI</span><span>React · TypeScript</span><span>Gemini / Veo 3.1</span><span>Kling</span><span>Claude</span><span>SSE</span><span>ffmpeg</span><span>GCS</span></div>
-          <a class="golink" href="https://github.com/LINQLABS/openart" target="_blank" rel="noopener">
-            github.com/LINQLABS/openart
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
-          </a>
         </div>
       </article>
 
@@ -947,7 +944,7 @@ footer a:hover{color:var(--accent)}
 
         <div class="facts">
           <div class="fact"><div class="k">Based in</div><div class="v">San Jose, California</div></div>
-          <div class="fact"><div class="k">Focused on</div><div class="v">Agent infra · Backend · Distributed systems</div></div>
+          <div class="fact"><div class="k">Focused on</div><div class="v">Agent evaluation · Agent runtime · Backend</div></div>
           <div class="fact"><div class="k">Reach for</div><div class="v">Python · Java · Go · C++ · TypeScript</div></div>
           <div class="fact"><div class="k">Status</div><div class="v">Open to opportunities</div></div>
         </div>
@@ -1006,9 +1003,9 @@ footer a:hover{color:var(--accent)}
   tick(); setInterval(tick, 15000);
 
   /* marquee */
-  var words = ['LLM agents','Agent runtime','Agent orchestration','Skill-based agent frameworks',
-               'Composable agent skills','Multi-agent architecture','Tool use','LLM-as-a-judge',
-               'Eval harnesses','Quality regression testing','Prompt engineering','RAG',
+  var words = ['LLM-as-a-judge','Agent evaluation','Eval harnesses','Quality regression testing',
+               'LLM agents','Agent runtime','Agent orchestration','Skill-based agent frameworks',
+               'Composable agent skills','Multi-agent architecture','Tool use','Prompt engineering','RAG',
                'Agent identity &amp; scoped auth','Feature-flagged rollouts','Fallback &amp; retry paths',
                'Agent observability','Incident tracing','Claude','Gemini','OpenAI API'];
   var mq = document.getElementById('mq');
