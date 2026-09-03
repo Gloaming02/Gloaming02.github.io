@@ -9,29 +9,52 @@
 <style>
   :root{
     --bg:#ffffff; --fg:#1a1a1a; --muted:#5c5c5c; --accent:#2563eb;
-    --card:#f6f7f9; --border:#e4e6ea; --maxw:760px;
+    --card:#f7f8fa; --card-hover:#eef1f6; --border:#e4e6ea; --tag:#eceef2;
+    --maxw:780px;
   }
   @media (prefers-color-scheme:dark){
     :root{ --bg:#0f1115; --fg:#e8e8e8; --muted:#9aa0a6; --accent:#6ea8fe;
-           --card:#171a20; --border:#272b33; }
+           --card:#161920; --card-hover:#1c2029; --border:#272b33; --tag:#242832; }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--fg);
     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent)}
   main{max-width:var(--maxw);margin:0 auto;padding:56px 24px 80px}
-  header h1{font-size:2rem;margin:0 0 4px;letter-spacing:-.02em}
-  header .role{color:var(--accent);font-weight:600}
-  header .loc{color:var(--muted);font-size:.95rem;margin-top:2px}
-  .links{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 8px}
+
+  .id{display:flex;gap:20px;align-items:center}
+  .id img{width:88px;height:88px;border-radius:50%;object-fit:cover;border:1px solid var(--border);flex:none}
+  .id h1{font-size:2rem;margin:0 0 4px;letter-spacing:-.02em}
+  .id .role{color:var(--accent);font-weight:600}
+  .id .loc{color:var(--muted);font-size:.95rem;margin-top:2px}
+
+  .links{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 4px}
   .links a{color:var(--fg);text-decoration:none;border:1px solid var(--border);
-    padding:6px 12px;border-radius:8px;font-size:.9rem;transition:border-color .15s}
+    padding:6px 12px;border-radius:8px;font-size:.9rem;transition:border-color .15s,color .15s}
   .links a:hover{border-color:var(--accent);color:var(--accent)}
-  .summary{color:var(--fg);margin:24px 0 8px}
-  section{margin-top:40px}
+
+  .summary{margin:24px 0 8px}
+
+  section{margin-top:44px}
   h2{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;
-    color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:20px}
+    color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:22px}
+
+  .cards{display:grid;gap:14px}
+  .oss{display:block;text-decoration:none;color:inherit;
+    background:var(--card);border:1px solid var(--border);border-radius:12px;
+    padding:16px 18px;transition:background .15s,border-color .15s,transform .15s}
+  .oss:hover{background:var(--card-hover);border-color:var(--accent);transform:translateY(-2px)}
+  .oss .top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .oss .name{font-weight:700;font-size:1.02rem;color:var(--fg)}
+  .oss .name .ico{width:15px;height:15px;vertical-align:-2px;margin-right:6px;fill:var(--muted)}
+  .oss .star{margin-left:auto;color:var(--muted);font-size:.85rem;white-space:nowrap}
+  .oss p{margin:8px 0 10px;color:var(--fg);font-size:.94rem}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tags span{background:var(--tag);color:var(--muted);font-size:.76rem;
+    padding:3px 8px;border-radius:6px;letter-spacing:.02em}
+
   .job{margin-bottom:26px}
   .job-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px}
   .job-head .company{font-weight:700}
@@ -39,18 +62,19 @@
   .job .title{color:var(--muted);font-style:italic;font-size:.95rem;margin:2px 0 8px}
   ul{margin:0;padding-left:1.15rem}
   li{margin:6px 0}
-  .skills p{margin:8px 0}
-  .skills strong{color:var(--fg)}
-  .edu-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin:6px 0}
-  .edu-row .date{color:var(--muted);font-size:.9rem}
-  footer{margin-top:56px;color:var(--muted);font-size:.85rem;text-align:center}
-  .id{display:flex;gap:18px;align-items:center}
-  .id img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:1px solid var(--border);flex:none}
+  .repo-link{font-size:.85rem}
+
   figure{margin:14px 0 0}
   figure img{width:100%;border:1px solid var(--border);border-radius:10px;display:block}
   figcaption{color:var(--muted);font-size:.82rem;margin-top:6px}
   .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}
   .gallery figure{margin:0}
+
+  .skills p{margin:8px 0}
+  .skills strong{color:var(--fg)}
+  .edu-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px;margin:6px 0}
+  .edu-row .date{color:var(--muted);font-size:.9rem}
+  footer{margin-top:56px;color:var(--muted);font-size:.85rem;text-align:center}
 </style>
 </head>
 <body>
@@ -73,9 +97,44 @@
     <p class="summary">
       Software engineer specializing in LLM agent infrastructure — agent runtime, evaluation,
       and the reliability layers that make agentic systems production-ready. Backed by a strong
-      distributed-systems and backend foundation.
+      distributed-systems and backend foundation. I also build and ship computer-vision game
+      automation tools in my spare time.
     </p>
   </header>
+
+  <section>
+    <h2>Open Source &amp; Side Projects</h2>
+    <div class="cards">
+
+      <a class="oss" href="https://github.com/Gloaming02/nte-rhythm-auto" target="_blank" rel="noopener">
+        <div class="top">
+          <span class="name"><svg class="ico" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>nte-rhythm-auto</span>
+          <span class="star">★ 8</span>
+        </div>
+        <p>Computer-vision autoplayer for the rhythm mode in <em>Neverness to Everness</em>. Captures the game window via Windows Graphics Capture, detects note pixels near the judgment line with OpenCV HSV segmentation, and fires D/F/J/K key presses in real time. Ships a packaged Windows release with optional unattended song-farming.</p>
+        <div class="tags"><span>Python</span><span>OpenCV</span><span>Computer Vision</span><span>Win32 / WGC</span><span>PyInstaller</span></div>
+      </a>
+
+      <a class="oss" href="https://github.com/Gloaming02/ok-duet-night-abyss" target="_blank" rel="noopener">
+        <div class="top">
+          <span class="name"><svg class="ico" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>ok-duet-night-abyss</span>
+          <span class="star">fork · contributor</span>
+        </div>
+        <p>Contributions to an automation framework for <em>Duet Night Abyss (二重螺旋)</em>: added a Ctrl-modified combat-skill combo key for a specific character, and fixed low-frame-rate timing bugs by replacing raw <code>time.sleep</code> calls with the framework's frame-aware scheduler so combos land reliably at 30 FPS.</p>
+        <div class="tags"><span>Python</span><span>Automation</span><span>OpenCV</span><span>Reverse-engineering timing</span></div>
+      </a>
+
+      <a class="oss" href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">
+        <div class="top">
+          <span class="name"><svg class="ico" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>mini-distributed-kv-cpp</span>
+          <span class="star">C++17</span>
+        </div>
+        <p>A compact, dependency-light key-value store: LSM-style storage engine with a CRC32-checked binary write-ahead log, crash recovery that stops safely at a corrupt WAL tail, immutable SSTables with tombstone-aware compaction, and a static leader-follower replication layer over length-prefixed TCP with optional semi-synchronous acks.</p>
+        <div class="tags"><span>C++17</span><span>LSM / WAL</span><span>SSTable compaction</span><span>Replication</span><span>TCP</span></div>
+      </a>
+
+    </div>
+  </section>
 
   <section>
     <h2>Experience</h2>
@@ -127,7 +186,7 @@
   </section>
 
   <section>
-    <h2>Projects</h2>
+    <h2>Coursework Projects</h2>
     <div class="job">
       <div class="job-head">
         <span class="company">Paxos Distributed Key-Value Store</span>
@@ -136,6 +195,7 @@
       <ul>
         <li>Implemented a fault-tolerant key-value store using the Paxos consensus algorithm (Java RMI), maintaining strong consistency across 5 replicas; stress-tested a Dockerized multi-node cluster with 500+ concurrent requests under simulated partitions and node failures.</li>
       </ul>
+      <a class="repo-link" href="https://github.com/Gloaming02/Paxos-Distributed-KeyValueStore" target="_blank" rel="noopener">→ github.com/Gloaming02/Paxos-Distributed-KeyValueStore</a>
     </div>
     <div class="job">
       <div class="job-head">
@@ -143,15 +203,17 @@
         <span class="date">09/2024 – 12/2024</span>
       </div>
       <ul>
-        <li>Architected a serverless monitoring service using SNS/SQS fan-out and AWS Lambda for real-time S3 events; designed DynamoDB GSIs for sub-50ms analytics queries, with CloudWatch-triggered automated remediation.</li>
+        <li>Architected a serverless monitoring service using SNS/SQS fan-out and AWS Lambda for real-time S3 events; designed DynamoDB GSIs for sub-50ms analytics queries, with CloudWatch-triggered automated remediation. Built with AWS CDK (TypeScript).</li>
       </ul>
+      <a class="repo-link" href="https://github.com/Gloaming02/Cloud-Based-S3-Bucket-Monitoring-System" target="_blank" rel="noopener">→ github.com/Gloaming02/Cloud-Based-S3-Bucket-Monitoring-System</a>
     </div>
 
-    <p style="color:var(--muted);font-size:.9rem;margin:22px 0 10px">Earlier coursework &amp; internship projects</p>
+    <p style="color:var(--muted);font-size:.9rem;margin:22px 0 10px">Earlier full-stack &amp; systems coursework</p>
     <ul>
-      <li><strong>Fiat Network Protocol</strong> — TCP-based data-transfer protocol and UDP-based name protocol in Java, using async I/O and SSL, built test-first with JUnit.</li>
+      <li><strong>Fiat Network Protocol</strong> — TCP-based data-transfer protocol and UDP-based name protocol in Java, using async I/O and SSL, built test-first with JUnit. <a href="https://github.com/Gloaming02/Fiat-Network-Protocol" target="_blank" rel="noopener">repo</a></li>
+      <li><strong>Kambaz</strong> — a Canvas-style course-management system, React + TypeScript front end with a Node/Express + MongoDB back end. <a href="https://github.com/Gloaming02/kambaz-react-web-app" target="_blank" rel="noopener">repo</a></li>
+      <li><strong>Used Car Trading System</strong> — listing/filtering marketplace with login and a Redis-backed shopping cart. <a href="https://github.com/Gloaming02/Used-Car-Trading-System-With-Redis" target="_blank" rel="noopener">repo</a></li>
       <li><strong>GitHub Scraper Chrome Extension</strong> (HireBeat, intern) — full-stack extension with a Flask + jQuery backend, JWT auth, and PostgreSQL, deployed on DigitalOcean.</li>
-      <li><strong>Ski Finder</strong> — preference-based ski-resort recommender with React + Spring Boot, tested with Spring's framework and deployed on Heroku.</li>
     </ul>
     <div class="gallery">
       <figure>
@@ -172,9 +234,10 @@
   <section class="skills">
     <h2>Skills</h2>
     <p><strong>AI / GenAI:</strong> LLM agents, agent runtime &amp; orchestration, LLM-as-a-judge evaluation, prompt engineering, RAG, OpenAI API</p>
-    <p><strong>Languages:</strong> Python, Java, Go, SQL, JavaScript/TypeScript, C/C++</p>
-    <p><strong>Backend &amp; Systems:</strong> Spring Boot, REST APIs, microservices, distributed systems, OOD, data structures &amp; algorithms, JUnit, Git</p>
+    <p><strong>Languages:</strong> Python, Java, Go, C/C++, SQL, JavaScript/TypeScript</p>
+    <p><strong>Backend &amp; Systems:</strong> Spring Boot, REST APIs, microservices, distributed systems, storage engines (WAL / LSM / SSTable), OOD, data structures &amp; algorithms, JUnit, Git</p>
     <p><strong>Cloud &amp; DevOps:</strong> AWS (Lambda, S3, SQS/SNS, DynamoDB, CloudWatch, CDK), Docker, CI/CD, Jenkins, Argo CD, Redis, Prometheus</p>
+    <p><strong>Computer Vision / Automation:</strong> OpenCV, real-time screen capture (WGC), HSV segmentation, input simulation, PyInstaller packaging</p>
   </section>
 
   <section>
@@ -190,7 +253,8 @@
   </section>
 
   <footer>
-    © <span id="y"></span> Zhengyan Hu · Built with plain HTML, hosted on GitHub Pages
+    © <span id="y"></span> Zhengyan Hu · Built with plain HTML, hosted on GitHub Pages ·
+    <a href="https://github.com/Gloaming02/Gloaming02.github.io" target="_blank" rel="noopener">source</a>
   </footer>
 </main>
 <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
