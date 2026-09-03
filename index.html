@@ -179,7 +179,13 @@ section{padding:clamp(80px,13vh,150px) 0;position:relative}
 .work{display:flex;flex-direction:column;gap:clamp(70px,12vh,130px)}
 .proj{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,64px);align-items:center}
 .proj:nth-child(even) .proj-media{order:2}
-@media(max-width:900px){.proj{grid-template-columns:1fr;gap:26px}.proj:nth-child(even) .proj-media{order:0}}
+/* Stacked layout — narrow screens, and the full-width feature card — always runs
+   copy first, image after, so every project reads the same way top to bottom. */
+@media(max-width:900px){
+  .proj{grid-template-columns:1fr;gap:26px}
+  .proj .proj-media,
+  .proj:nth-child(even) .proj-media{order:2}
+}
 
 /* first project runs full width — the screenshot deserves the room */
 .proj.feature{grid-template-columns:1fr;gap:clamp(24px,3.4vw,40px)}
