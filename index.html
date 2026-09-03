@@ -400,8 +400,10 @@ footer a:hover{color:var(--accent)}
             sitting at the end of it — an <b>LLM-as-a-judge</b> framework scoring accuracy, relevance,
             completeness and coherence, end-to-end runs in the development environment before a change
             ships and again against the production environment after, and <b>routing checks</b>
-            that catch a personalized question going to a general-purpose skill. Most of the time the
-            eval is the <b>debugger</b>: a failing case hands you a diagnosis, not a grade.
+            that catch a personalized question going to a general-purpose skill. Some of it is scoring
+            what the agent should <i>refuse</i>: ask a tax assistant to debug your code and the correct
+            answer is no, which is harder to grade than a good answer is. Most of the time the eval is
+            the <b>debugger</b>: a failing case hands you a diagnosis, not a grade.
           </p>
           <p>
             With an AI scientist I built a shared eval library and tuned routing evaluation to
