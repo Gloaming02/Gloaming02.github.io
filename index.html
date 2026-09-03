@@ -554,9 +554,9 @@ footer a:hover{color:var(--accent)}
         <a class="proj-media" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
           <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: a decision node branching into fold, call and raise, each fanning out into Monte Carlo rollouts with an average return">
             <!-- root -->
-            <rect x="300" y="40" width="200" height="52" rx="9" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.20)"/>
-            <text x="400" y="63" font-family="monospace" font-size="17" fill="#ece9e3" text-anchor="middle">hand + board</text>
-            <text x="400" y="82" font-family="monospace" font-size="14" fill="#5f5d58" text-anchor="middle">opponent hidden</text>
+            <rect x="300" y="40" width="200" height="52" rx="9" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.42)"/>
+            <text x="400" y="63" font-family="monospace" font-size="21" fill="#ece9e3" text-anchor="middle">hand + board</text>
+            <text x="400" y="82" font-family="monospace" font-size="18" fill="#8f8c84" text-anchor="middle">opponent hidden</text>
 
             <!-- branches -->
             <g stroke="#7dd3c0" stroke-width="1.3" opacity=".75" fill="none">
@@ -569,24 +569,24 @@ footer a:hover{color:var(--accent)}
             </g>
 
             <!-- actions -->
-            <g font-family="monospace" font-size="17" text-anchor="middle">
-              <rect x="80" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.18)"/>
-              <text x="150" y="186" fill="#9a978f">fold</text>
-              <rect x="330" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.18)"/>
-              <text x="400" y="186" fill="#9a978f">call</text>
+            <g font-family="monospace" font-size="21" text-anchor="middle">
+              <rect x="80" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="150" y="186" fill="#cbc8c2">fold</text>
+              <rect x="330" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="400" y="186" fill="#cbc8c2">call</text>
               <rect x="580" y="160" width="140" height="40" rx="8" fill="rgba(125,211,192,.14)" stroke="#7dd3c0"/>
               <text x="650" y="186" fill="#ece9e3">raise</text>
             </g>
 
             <!-- rollout fans -->
-            <g stroke="rgba(255,255,255,.16)" stroke-width="1" fill="none">
+            <g stroke="rgba(255,255,255,.26)" stroke-width="1" fill="none">
               <path d="M150 200 L96 288 M150 200 L123 288 M150 200 L150 288 M150 200 L177 288 M150 200 L204 288"/>
               <path d="M400 200 L346 288 M400 200 L373 288 M400 200 L400 288 M400 200 L427 288 M400 200 L454 288"/>
             </g>
             <g stroke="rgba(125,211,192,.45)" stroke-width="1" fill="none">
               <path d="M650 200 L596 288 M650 200 L623 288 M650 200 L650 288 M650 200 L677 288 M650 200 L704 288"/>
             </g>
-            <g fill="#5f5d58">
+            <g fill="#8f8c84">
               <circle cx="96" cy="294" r="4"/><circle cx="123" cy="294" r="4"/><circle cx="150" cy="294" r="4"/>
               <circle cx="177" cy="294" r="4"/><circle cx="204" cy="294" r="4"/>
               <circle cx="346" cy="294" r="4"/><circle cx="373" cy="294" r="4"/><circle cx="400" cy="294" r="4"/>
@@ -597,19 +597,19 @@ footer a:hover{color:var(--accent)}
               <circle cx="677" cy="294" r="4"/><circle cx="704" cy="294" r="4"/>
             </g>
 
-            <text x="400" y="336" font-family="monospace" font-size="15" fill="#5f5d58" text-anchor="middle">
+            <text x="400" y="336" font-family="monospace" font-size="19" fill="#8f8c84" text-anchor="middle">
               deal the unseen cards · play to showdown · hundreds of times per path
             </text>
 
             <!-- returns -->
-            <line x1="60" y1="368" x2="740" y2="368" stroke="rgba(255,255,255,.10)"/>
-            <text x="60" y="392" font-family="monospace" font-size="14" fill="#5f5d58">average chip return</text>
+            <line x1="60" y1="368" x2="740" y2="368" stroke="rgba(255,255,255,.42)"/>
+            <text x="60" y="392" font-family="monospace" font-size="18" fill="#8f8c84">average chip return</text>
             <g>
-              <rect x="100" y="404" width="42" height="9" rx="4" fill="rgba(255,255,255,.18)"/>
-              <rect x="350" y="404" width="86" height="9" rx="4" fill="rgba(255,255,255,.28)"/>
+              <rect x="100" y="404" width="42" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
+              <rect x="350" y="404" width="86" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
               <rect x="600" y="404" width="128" height="9" rx="4" fill="#7dd3c0"/>
             </g>
-            <text x="650" y="440" font-family="monospace" font-size="15" fill="#7dd3c0" text-anchor="middle">take this branch</text>
+            <text x="650" y="440" font-family="monospace" font-size="19" fill="#7dd3c0" text-anchor="middle">take this branch</text>
           </svg>
           <span class="veil"></span>
           <span class="peek">View repository ↗</span>
@@ -645,81 +645,81 @@ footer a:hover{color:var(--accent)}
       <article class="proj rv">
         <span class="proj-media">
           <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Forum architecture: React through a Spring Cloud Gateway to six Spring Boot services registered with Eureka and configured from a central config server, backed by MySQL, MongoDB and S3, with the message service publishing over RabbitMQ to an email service">
-            <g font-family="monospace" font-size="15" fill="#9a978f">
-              <!-- platform strip -->
-              <rect x="150" y="26" width="300" height="40" rx="7" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/>
-              <text x="300" y="51" text-anchor="middle" font-size="14" fill="#5f5d58">eureka-server · discovery</text>
-              <rect x="466" y="26" width="316" height="40" rx="7" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/>
-              <text x="624" y="51" text-anchor="middle" font-size="14" fill="#5f5d58">config-server · config-repo</text>
+            <g font-family="monospace" font-size="20" fill="#c9c6c0">
+              <!-- platform -->
+              <g stroke="rgba(255,255,255,.32)" fill="rgba(255,255,255,.03)" stroke-dasharray="5 5">
+                <rect x="330" y="4" width="230" height="40" rx="7"/>
+                <rect x="600" y="4" width="180" height="40" rx="7"/>
+              </g>
+              <g font-size="17" fill="#8f8c84" text-anchor="middle">
+                <text x="445" y="30">eureka-server</text>
+                <text x="690" y="30">config-server</text>
+              </g>
 
-              <!-- client -->
-              <rect x="14" y="256" width="96" height="46" rx="7" fill="none" stroke="rgba(255,255,255,.20)"/>
-              <text x="62" y="285" text-anchor="middle">React 18</text>
-              <path d="M110 279 H142" stroke="rgba(255,255,255,.28)"/>
-              <path d="M136 274 l8 5 -8 5 z" fill="rgba(255,255,255,.40)"/>
-
-              <!-- gateway -->
-              <rect x="144" y="248" width="112" height="62" rx="7" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.24)"/>
-              <text x="200" y="275" text-anchor="middle" fill="#ece9e3">api-gateway</text>
-              <text x="200" y="296" text-anchor="middle" font-size="13" fill="#5f5d58">JWT auth</text>
+              <!-- client + gateway -->
+              <rect x="10" y="214" width="118" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.42)"/>
+              <text x="69" y="247" text-anchor="middle">React 18</text>
+              <path d="M128 240 H160" stroke="rgba(255,255,255,.42)" stroke-width="1.4"/>
+              <path d="M154 234 l9 6 -9 6 z" fill="rgba(255,255,255,.45)"/>
+              <rect x="162" y="202" width="160" height="76" rx="7" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.34)"/>
+              <text x="242" y="236" text-anchor="middle" fill="#ece9e3">api-gateway</text>
+              <text x="242" y="261" text-anchor="middle" font-size="16" fill="#8f8c84">JWT auth</text>
 
               <!-- gateway -> services -->
-              <g stroke="rgba(255,255,255,.18)" fill="none">
-                <path d="M256 268 C296 268 288 122 314 122"/>
-                <path d="M256 272 C296 272 288 180 314 180"/>
-                <path d="M256 276 C296 276 288 238 314 238"/>
-                <path d="M256 282 C296 282 288 296 314 296"/>
-                <path d="M256 286 C296 286 288 354 314 354"/>
-                <path d="M256 290 C296 290 288 412 314 412"/>
+              <g stroke="rgba(255,255,255,.38)" fill="none">
+                <path d="M322 224 C348 224 344 84 366 84"/>
+                <path d="M322 230 C348 230 344 146 366 146"/>
+                <path d="M322 236 C348 236 344 208 366 208"/>
+                <path d="M322 244 C348 244 344 270 366 270"/>
+                <path d="M322 250 C348 250 344 332 366 332"/>
+                <path d="M322 256 C348 256 344 394 366 394"/>
               </g>
 
               <!-- services -->
-              <g stroke="rgba(255,255,255,.16)" fill="none">
-                <rect x="314" y="100" width="164" height="44" rx="7"/>
-                <rect x="314" y="158" width="164" height="44" rx="7"/>
-                <rect x="314" y="216" width="164" height="44" rx="7"/>
-                <rect x="314" y="274" width="164" height="44" rx="7"/>
-                <rect x="314" y="332" width="164" height="44" rx="7"/>
-                <rect x="314" y="390" width="164" height="44" rx="7"/>
+              <g stroke="rgba(255,255,255,.26)" fill="none">
+                <rect x="366" y="60" width="222" height="48" rx="7"/>
+                <rect x="366" y="122" width="222" height="48" rx="7"/>
+                <rect x="366" y="184" width="222" height="48" rx="7"/>
+                <rect x="366" y="246" width="222" height="48" rx="7"/>
+                <rect x="366" y="308" width="222" height="48" rx="7"/>
+                <rect x="366" y="370" width="222" height="48" rx="7"/>
               </g>
-              <g text-anchor="middle" fill="#c9c6c0">
-                <text x="396" y="128">auth-service</text>
-                <text x="396" y="186">user-service</text>
-                <text x="396" y="244">post-service</text>
-                <text x="396" y="302">history-service</text>
-                <text x="396" y="360">file-service</text>
-                <text x="396" y="418">message-service</text>
+              <g text-anchor="middle">
+                <text x="477" y="91">auth-service</text>
+                <text x="477" y="153">user-service</text>
+                <text x="477" y="215">post-service</text>
+                <text x="477" y="277">history-service</text>
+                <text x="477" y="339">file-service</text>
+                <text x="477" y="401">message-service</text>
               </g>
 
               <!-- services -> stores -->
-              <g stroke="rgba(255,255,255,.16)" fill="none">
-                <path d="M478 122 C516 122 512 152 540 152"/>
-                <path d="M478 180 H540"/>
-                <path d="M478 296 C516 296 512 174 540 174"/>
-                <path d="M478 238 H540"/>
-                <path d="M478 354 H540"/>
+              <g stroke="rgba(255,255,255,.26)" fill="none">
+                <path d="M588 84 C608 84 604 132 622 132"/>
+                <path d="M588 146 H622"/>
+                <path d="M588 270 C608 270 604 160 622 160"/>
+                <path d="M588 208 H622"/>
+                <path d="M588 332 H622"/>
+                <path d="M588 394 H622"/>
               </g>
-              <g stroke="rgba(255,255,255,.16)" fill="none">
-                <rect x="540" y="140" width="150" height="44" rx="7"/>
-                <rect x="540" y="216" width="150" height="44" rx="7"/>
-                <rect x="540" y="332" width="150" height="44" rx="7"/>
+              <g stroke="rgba(255,255,255,.26)" fill="none">
+                <rect x="622" y="122" width="168" height="48" rx="7"/>
+                <rect x="622" y="184" width="168" height="48" rx="7"/>
+                <rect x="622" y="308" width="168" height="48" rx="7"/>
+                <rect x="622" y="370" width="168" height="48" rx="7"/>
               </g>
-              <g text-anchor="middle" font-size="14" fill="#9a978f">
-                <text x="615" y="168">MySQL · RDS</text>
-                <text x="615" y="244">MongoDB</text>
-                <text x="615" y="360">AWS S3</text>
+              <g text-anchor="middle" font-size="18" fill="#cbc8c2">
+                <text x="706" y="152">MySQL · RDS</text>
+                <text x="706" y="214">MongoDB</text>
+                <text x="706" y="338">AWS S3</text>
+                <text x="706" y="400">RabbitMQ</text>
               </g>
 
               <!-- async hop -->
-              <path d="M478 412 H524" stroke="rgba(255,255,255,.22)" stroke-dasharray="5 4" fill="none"/>
-              <path d="M518 407 l8 5 -8 5 z" fill="rgba(255,255,255,.30)"/>
-              <rect x="526" y="390" width="118" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.16)"/>
-              <text x="585" y="418" text-anchor="middle">RabbitMQ</text>
-              <path d="M644 412 H674" stroke="rgba(255,255,255,.22)" stroke-dasharray="5 4" fill="none"/>
-              <path d="M668 407 l8 5 -8 5 z" fill="rgba(255,255,255,.30)"/>
-              <rect x="676" y="390" width="112" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.16)"/>
-              <text x="732" y="418" text-anchor="middle">email-service</text>
-              <text x="660" y="462" text-anchor="middle" font-size="13" fill="#5f5d58">asynchronous — never blocks the request</text>
+              <path d="M706 418 V444" stroke="rgba(255,255,255,.32)" stroke-dasharray="5 4" fill="none"/>
+              <path d="M700 438 l6 9 6 -9 z" fill="rgba(255,255,255,.42)"/>
+              <rect x="622" y="448" width="168" height="46" rx="7" fill="none" stroke="rgba(255,255,255,.26)"/>
+              <text x="706" y="478" text-anchor="middle" font-size="18">email-service</text>
             </g>
           </svg>
           <span class="veil"></span>
@@ -767,7 +767,7 @@ footer a:hover{color:var(--accent)}
               <rect x="306" y="0" width="102" height="500" fill="url(#laneg)"/>
               <rect x="416" y="0" width="102" height="500" fill="url(#laneg)"/>
               <rect x="526" y="0" width="102" height="500" fill="url(#laneg)"/>
-              <g stroke="rgba(255,255,255,.10)" stroke-width="1">
+              <g stroke="rgba(255,255,255,.42)" stroke-width="1">
                 <line x1="196" y1="0" x2="196" y2="500"/><line x1="298" y1="0" x2="298" y2="500"/>
                 <line x1="408" y1="0" x2="408" y2="500"/><line x1="518" y1="0" x2="518" y2="500"/>
                 <line x1="628" y1="0" x2="628" y2="500"/>
@@ -777,9 +777,11 @@ footer a:hover{color:var(--accent)}
             <line x1="160" y1="386" x2="664" y2="386" stroke="#7dd3c0" stroke-width="2" opacity=".85"/>
             <rect x="160" y="356" width="504" height="60" fill="none" stroke="#7dd3c0"
                   stroke-width="1" stroke-dasharray="5 5" opacity=".55"/>
-            <text x="160" y="345" font-family="monospace" font-size="20" fill="#7dd3c0" opacity=".9">HSV window · h 84–96</text>
-            <text x="788" y="392" font-family="monospace" font-size="17" fill="#7dd3c0"
-                  opacity=".9" text-anchor="end">judgment</text>
+            <g font-family="monospace" font-size="20" fill="#7dd3c0" opacity=".9">
+              <text x="18" y="374">HSV window</text>
+              <text x="18" y="400">h 84–96</text>
+            </g>
+            <text x="790" y="378" font-family="monospace" font-size="20" fill="#7dd3c0" opacity=".9" text-anchor="end">judgment</text>
             <!-- falling notes -->
             <g fill="#ece9e3">
               <rect x="206" y="60" width="82" height="17" rx="4" opacity=".92">
@@ -799,12 +801,15 @@ footer a:hover{color:var(--accent)}
               </rect>
             </g>
             <!-- keycaps -->
-            <g font-family="monospace" font-size="26" fill="#5f5d58" text-anchor="middle">
+            <g font-family="monospace" font-size="34" fill="#8f8c84" text-anchor="middle">
               <text x="247" y="452">D</text><text x="357" y="452">F</text>
               <text x="467" y="452">J</text><text x="577" y="452">K</text>
             </g>
-            <text x="40" y="52" font-family="monospace" font-size="20" fill="#5f5d58">WGC capture → OpenCV</text>
-            <text x="40" y="76" font-family="monospace" font-size="20" fill="#5f5d58">→ SendInput</text>
+            <g font-family="monospace" font-size="20" fill="#8f8c84">
+              <text x="18" y="70">WGC capture</text>
+              <text x="18" y="98">→ OpenCV</text>
+              <text x="18" y="126">→ SendInput</text>
+            </g>
           </svg>
           <span class="veil"></span>
           <span class="peek">View repository ↗</span>
@@ -835,57 +840,57 @@ footer a:hover{color:var(--accent)}
       <article class="proj rv">
         <a class="proj-media" href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">
           <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: write path through WAL and memtable into SSTables, with leader-to-follower replication">
-            <g font-family="monospace" font-size="18" fill="#9a978f">
+            <g font-family="monospace" font-size="22" fill="#cbc8c2">
               <!-- write path -->
-              <text x="48" y="56" fill="#7dd3c0" font-size="17">LEADER</text>
-              <rect x="44" y="72" width="150" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.18)"/>
+              <text x="48" y="56" fill="#7dd3c0" font-size="20">LEADER</text>
+              <rect x="44" y="72" width="150" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
               <text x="62" y="103">PUT k,v</text>
 
               <path d="M194 98 H250" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
               <path d="M244 93 l8 5 -8 5 z" fill="#7dd3c0"/>
 
-              <rect x="252" y="72" width="176" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.18)"/>
+              <rect x="252" y="72" width="176" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
               <text x="270" y="97">WAL append</text>
-              <text x="270" y="114" font-size="15" fill="#5f5d58">crc32 · fsync</text>
+              <text x="270" y="114" font-size="18" fill="#8f8c84">crc32 · fsync</text>
 
               <path d="M340 124 V166" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
               <path d="M335 160 l5 8 5 -8 z" fill="#7dd3c0"/>
 
-              <rect x="252" y="168" width="176" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.18)"/>
+              <rect x="252" y="168" width="176" height="52" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
               <text x="270" y="193">memtable</text>
-              <text x="270" y="210" font-size="15" fill="#5f5d58">sorted, in-memory</text>
+              <text x="270" y="210" font-size="18" fill="#8f8c84">sorted, in-memory</text>
 
               <path d="M340 220 V262" stroke="#7dd3c0" stroke-width="1.4" opacity=".8"/>
               <path d="M335 256 l5 8 5 -8 z" fill="#7dd3c0"/>
-              <text x="352" y="248" font-size="15" fill="#5f5d58">flush</text>
+              <text x="352" y="248" font-size="18" fill="#8f8c84">flush</text>
 
               <!-- sstables -->
-              <text x="252" y="288" fill="#7dd3c0" font-size="17">SSTABLES · immutable</text>
-              <rect x="252" y="298" width="176" height="26" rx="5" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.14)"/>
-              <text x="266" y="316" font-size="15">L0 — recent</text>
-              <rect x="252" y="330" width="176" height="26" rx="5" fill="rgba(125,211,192,.07)" stroke="rgba(255,255,255,.12)"/>
-              <text x="266" y="348" font-size="15">L1 — compacted</text>
-              <rect x="252" y="362" width="176" height="26" rx="5" fill="rgba(125,211,192,.04)" stroke="rgba(255,255,255,.10)"/>
-              <text x="266" y="380" font-size="15">L2 — tombstones dropped</text>
+              <text x="252" y="288" fill="#7dd3c0" font-size="20">SSTABLES · immutable</text>
+              <rect x="252" y="296" width="252" height="30" rx="5" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.34)"/>
+              <text x="266" y="317" font-size="17">L0 — recent</text>
+              <rect x="252" y="332" width="252" height="30" rx="5" fill="rgba(125,211,192,.07)" stroke="rgba(255,255,255,.32)"/>
+              <text x="266" y="353" font-size="17">L1 — compacted</text>
+              <rect x="252" y="368" width="252" height="30" rx="5" fill="rgba(125,211,192,.04)" stroke="rgba(255,255,255,.42)"/>
+              <text x="266" y="389" font-size="17">L2 — tombstones dropped</text>
 
               <!-- replication -->
               <path d="M428 98 H556" stroke="#7dd3c0" stroke-width="1.4" opacity=".8" stroke-dasharray="4 4"/>
               <path d="M550 93 l8 5 -8 5 z" fill="#7dd3c0"/>
-              <text x="462" y="88" font-size="15" fill="#5f5d58">TCP</text>
+              <text x="462" y="88" font-size="18" fill="#8f8c84">TCP</text>
 
-              <text x="560" y="56" fill="#7dd3c0" font-size="17">FOLLOWERS</text>
-              <rect x="556" y="72" width="196" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.18)"/>
-              <text x="574" y="99" font-size="17">replica 1 — ack</text>
-              <rect x="556" y="124" width="196" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.18)"/>
-              <text x="574" y="151" font-size="17">replica 2 — ack</text>
-              <text x="556" y="196" font-size="15" fill="#5f5d58">length-prefixed TCP framing</text>
-              <text x="556" y="216" font-size="15" fill="#5f5d58">semi-sync: wait for N acks</text>
+              <text x="560" y="56" fill="#7dd3c0" font-size="20">FOLLOWERS</text>
+              <rect x="556" y="72" width="196" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="574" y="99" font-size="20">replica 1 — ack</text>
+              <rect x="556" y="124" width="196" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="574" y="151" font-size="20">replica 2 — ack</text>
+              <text x="556" y="198" font-size="16" fill="#8f8c84">length-prefixed framing</text>
+              <text x="556" y="222" font-size="16" fill="#8f8c84">semi-sync: N acks</text>
 
               <!-- recovery -->
-              <rect x="556" y="298" width="196" height="90" rx="7" fill="none" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/>
-              <text x="574" y="324" font-size="17" fill="#7dd3c0">crash recovery</text>
-              <text x="574" y="346" font-size="15">replay WAL →</text>
-              <text x="574" y="364" font-size="15">stop at corrupt tail</text>
+              <rect x="556" y="296" width="234" height="98" rx="7" fill="none" stroke="rgba(255,255,255,.32)" stroke-dasharray="4 4"/>
+              <text x="574" y="324" font-size="20" fill="#7dd3c0">crash recovery</text>
+              <text x="574" y="350" font-size="17">replay WAL →</text>
+              <text x="574" y="374" font-size="17">stop at corrupt tail</text>
             </g>
           </svg>
           <span class="veil"></span>
@@ -966,8 +971,8 @@ footer a:hover{color:var(--accent)}
               <circle cx="310" cy="140" r="12"/><circle cx="140" cy="205" r="12"/><circle cx="260" cy="205" r="12"/>
             </g>
             <circle cx="200" cy="60" r="15" fill="rgba(125,211,192,.25)"/>
-            <text x="200" y="34" font-family="monospace" font-size="11" fill="#7dd3c0" text-anchor="middle">proposer</text>
-            <text x="200" y="238" font-family="monospace" font-size="11" fill="#5f5d58" text-anchor="middle">prepare → promise → accept</text>
+            <text x="200" y="34" font-family="monospace" font-size="16" fill="#7dd3c0" text-anchor="middle">proposer</text>
+            <text x="200" y="238" font-family="monospace" font-size="16" fill="#8f8c84" text-anchor="middle">prepare → promise → accept</text>
           </svg>
         </div>
         <div class="body">
@@ -980,7 +985,7 @@ footer a:hover{color:var(--accent)}
       <a class="tile rv" href="https://github.com/Gloaming02/Cloud-Based-S3-Bucket-Monitoring-System" target="_blank" rel="noopener">
         <div class="thumb">
           <svg class="art" viewBox="0 0 400 250" role="img" aria-label="S3 events fanning out through SNS and SQS into Lambda and DynamoDB">
-            <g font-family="monospace" font-size="11" fill="#9a978f">
+            <g font-family="monospace" font-size="16" fill="#cbc8c2">
               <rect x="16" y="104" width="76" height="42" rx="6" fill="none" stroke="rgba(255,255,255,.2)"/>
               <text x="54" y="129" text-anchor="middle">S3</text>
               <path d="M92 125 H128" stroke="#7dd3c0" opacity=".7"/>
@@ -992,7 +997,7 @@ footer a:hover{color:var(--accent)}
               <text x="285" y="81" text-anchor="middle">Lambda</text>
               <rect x="242" y="152" width="86" height="42" rx="6" fill="rgba(125,211,192,.09)" stroke="rgba(255,255,255,.2)"/>
               <text x="285" y="177" text-anchor="middle">DynamoDB</text>
-              <text x="200" y="228" text-anchor="middle" fill="#5f5d58">GSI · sub-50ms analytics</text>
+              <text x="200" y="228" text-anchor="middle" fill="#8f8c84">GSI · sub-50ms analytics</text>
             </g>
           </svg>
         </div>
@@ -1006,19 +1011,19 @@ footer a:hover{color:var(--accent)}
       <a class="tile rv" href="https://github.com/Gloaming02/kambaz-react-web-app" target="_blank" rel="noopener">
         <div class="thumb">
           <svg class="art" viewBox="0 0 400 250" role="img" aria-label="Course management app layout: sidebar, module list and assignment cards">
-            <rect x="18" y="26" width="62" height="200" rx="6" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.14)"/>
-            <g fill="rgba(255,255,255,.20)">
+            <rect x="18" y="26" width="62" height="200" rx="6" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.34)"/>
+            <g fill="rgba(255,255,255,.42)">
               <rect x="30" y="48" width="38" height="6" rx="3"/><rect x="30" y="66" width="30" height="6" rx="3"/>
               <rect x="30" y="84" width="36" height="6" rx="3"/><rect x="30" y="102" width="26" height="6" rx="3"/>
             </g>
-            <rect x="94" y="26" width="288" height="34" rx="6" fill="none" stroke="rgba(255,255,255,.14)"/>
-            <text x="108" y="48" font-family="monospace" font-size="13" fill="#7dd3c0">CS 5610 · Modules</text>
-            <g fill="none" stroke="rgba(255,255,255,.14)">
+            <rect x="94" y="26" width="288" height="34" rx="6" fill="none" stroke="rgba(255,255,255,.34)"/>
+            <text x="108" y="48" font-family="monospace" font-size="19" fill="#7dd3c0">CS 5610 · Modules</text>
+            <g fill="none" stroke="rgba(255,255,255,.34)">
               <rect x="94" y="72" width="288" height="46" rx="6"/>
               <rect x="94" y="128" width="288" height="46" rx="6"/>
               <rect x="94" y="184" width="288" height="42" rx="6"/>
             </g>
-            <g fill="rgba(255,255,255,.22)">
+            <g fill="rgba(255,255,255,.32)">
               <rect x="110" y="88" width="130" height="7" rx="3"/><rect x="110" y="102" width="84" height="6" rx="3"/>
               <rect x="110" y="144" width="112" height="7" rx="3"/><rect x="110" y="158" width="96" height="6" rx="3"/>
               <rect x="110" y="198" width="120" height="7" rx="3"/>
@@ -1047,9 +1052,9 @@ footer a:hover{color:var(--accent)}
       <a class="tile rv" href="https://github.com/Gloaming02/Fiat-Network-Protocol" target="_blank" rel="noopener">
         <div class="thumb">
           <svg class="art" viewBox="0 0 400 250" role="img" aria-label="TCP data protocol and UDP name protocol handshake sequence">
-            <g font-family="monospace" font-size="11" fill="#9a978f">
-              <line x1="96" y1="46" x2="96" y2="212" stroke="rgba(255,255,255,.16)"/>
-              <line x1="304" y1="46" x2="304" y2="212" stroke="rgba(255,255,255,.16)"/>
+            <g font-family="monospace" font-size="16" fill="#cbc8c2">
+              <line x1="96" y1="46" x2="96" y2="212" stroke="rgba(255,255,255,.26)"/>
+              <line x1="304" y1="46" x2="304" y2="212" stroke="rgba(255,255,255,.26)"/>
               <text x="96" y="36" text-anchor="middle" fill="#7dd3c0">client</text>
               <text x="304" y="36" text-anchor="middle" fill="#7dd3c0">server</text>
               <g stroke="#7dd3c0" opacity=".75">
@@ -1059,10 +1064,10 @@ footer a:hover{color:var(--accent)}
                 <path d="M292 71 l9 5 -9 5 z"/><path d="M108 111 l-9 5 9 5 z"/>
                 <path d="M292 151 l9 5 -9 5 z"/><path d="M108 191 l-9 5 9 5 z"/>
               </g>
-              <text x="200" y="70" text-anchor="middle" font-size="10">SSL handshake</text>
-              <text x="200" y="110" text-anchor="middle" font-size="10">name resolve (UDP)</text>
-              <text x="200" y="150" text-anchor="middle" font-size="10">transfer (TCP, async I/O)</text>
-              <text x="200" y="190" text-anchor="middle" font-size="10">ack</text>
+              <text x="200" y="70" text-anchor="middle" font-size="14">SSL handshake</text>
+              <text x="200" y="110" text-anchor="middle" font-size="14">name resolve (UDP)</text>
+              <text x="200" y="150" text-anchor="middle" font-size="14">transfer (TCP, async I/O)</text>
+              <text x="200" y="190" text-anchor="middle" font-size="14">ack</text>
             </g>
           </svg>
         </div>
@@ -1076,13 +1081,13 @@ footer a:hover{color:var(--accent)}
       <a class="tile rv" href="https://github.com/Gloaming02/ok-duet-night-abyss" target="_blank" rel="noopener">
         <div class="thumb">
           <svg class="art" viewBox="0 0 400 250" role="img" aria-label="Frame-aware scheduler timeline replacing raw sleep calls">
-            <g font-family="monospace" font-size="10" fill="#9a978f">
-              <text x="24" y="70" fill="#5f5d58">time.sleep()</text>
-              <g fill="rgba(255,255,255,.14)">
+            <g font-family="monospace" font-size="14" fill="#cbc8c2">
+              <text x="24" y="70" fill="#8f8c84">time.sleep()</text>
+              <g fill="rgba(255,255,255,.34)">
                 <rect x="24" y="82" width="46" height="16" rx="3"/><rect x="86" y="82" width="46" height="16" rx="3"/>
                 <rect x="148" y="82" width="46" height="16" rx="3"/><rect x="210" y="82" width="46" height="16" rx="3"/>
               </g>
-              <text x="272" y="95" fill="#5f5d58">drift ✕</text>
+              <text x="272" y="95" fill="#8f8c84">drift ✕</text>
               <text x="24" y="150" fill="#7dd3c0">frame-aware scheduler</text>
               <g fill="rgba(125,211,192,.4)">
                 <rect x="24" y="162" width="30" height="16" rx="3"/><rect x="60" y="162" width="30" height="16" rx="3"/>
