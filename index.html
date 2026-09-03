@@ -187,19 +187,6 @@ section{padding:clamp(80px,13vh,150px) 0;position:relative}
   .proj:nth-child(even) .proj-media{order:2}
 }
 
-/* first project runs full width — the screenshot deserves the room */
-.proj.feature{grid-template-columns:1fr;gap:clamp(24px,3.4vw,40px)}
-.proj.feature .proj-media{aspect-ratio:16/9.2}
-.proj.feature .proj-body{display:grid;grid-template-columns:1fr 1fr;
-  column-gap:clamp(24px,4vw,56px);row-gap:0;align-items:start}
-.proj.feature .proj-idx,.proj.feature .kicker,.proj.feature h3,
-.proj.feature .role-note,.proj.feature .stack,.proj.feature .golink{grid-column:1 / -1}
-.proj.feature h3{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:14px}
-.proj.feature .role-note{margin-bottom:22px}
-.proj.feature .kicker{margin-bottom:8px}
-.proj.feature p{max-width:58ch;margin-bottom:22px}
-.proj.feature .stack{margin-bottom:18px}
-@media(max-width:900px){.proj.feature .proj-body{grid-template-columns:1fr}}
 
 .proj-media{position:relative;border:1px solid var(--line);border-radius:14px;overflow:hidden;
   background:var(--bg-2);aspect-ratio:16/10;display:block}
@@ -508,14 +495,19 @@ footer a:hover{color:var(--accent)}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="sec-num">02</span>
-      <h2 class="sec-title">Selected Work</h2>
+      <h2 class="sec-title">My Work</h2>
       <span class="sec-note">Five things worth showing</span>
     </div>
 
     <div class="work">
 
       <!-- OpenArt -->
-      <article class="proj feature rv">
+      <article class="proj rv">
+        <span class="proj-media">
+          <img src="assets/openart-wizard.png" alt="OpenArt project wizard: video concept, character input mode, director model and video provider selection">
+          <span class="veil"></span>
+          <span class="peek">Private repository</span>
+        </span>
         <div class="proj-body">
           <div class="proj-idx">01 — Client work</div>
           <div class="kicker">LINQ Labs · built for and delivered to OpenArt</div>
@@ -535,11 +527,6 @@ footer a:hover{color:var(--accent)}
           </p>
           <div class="stack"><span>FastAPI</span><span>React · TypeScript</span><span>Gemini / Veo 3.1</span><span>Kling</span><span>Claude</span><span>SSE</span><span>ffmpeg</span><span>GCS</span></div>
         </div>
-        <span class="proj-media">
-          <img src="assets/openart-wizard.png" alt="OpenArt project wizard: video concept, character input mode, director model and video provider selection">
-          <span class="veil"></span>
-          <span class="peek">Private repository</span>
-        </span>
       </article>
 
       <!-- texas hold'em -->
@@ -591,38 +578,50 @@ footer a:hover{color:var(--accent)}
             </g>
 
             <text x="400" y="336" font-family="monospace" font-size="15" fill="#5f5d58" text-anchor="middle">
-              deal the unseen cards · play to showdown · 300× per action
+              deal the unseen cards · play to showdown · hundreds of times per path
             </text>
 
             <!-- returns -->
             <line x1="60" y1="368" x2="740" y2="368" stroke="rgba(255,255,255,.10)"/>
-            <g font-family="monospace" font-size="16" text-anchor="middle">
-              <text x="150" y="402" fill="#5f5d58">avg  −12</text>
-              <text x="400" y="402" fill="#5f5d58">avg  +31</text>
-              <text x="650" y="402" fill="#7dd3c0">avg  +58</text>
-              <text x="650" y="432" fill="#7dd3c0" font-size="14">← take this branch</text>
+            <text x="60" y="392" font-family="monospace" font-size="14" fill="#5f5d58">average chip return</text>
+            <g>
+              <rect x="100" y="404" width="42" height="9" rx="4" fill="rgba(255,255,255,.18)"/>
+              <rect x="350" y="404" width="86" height="9" rx="4" fill="rgba(255,255,255,.28)"/>
+              <rect x="600" y="404" width="128" height="9" rx="4" fill="#7dd3c0"/>
             </g>
+            <text x="650" y="440" font-family="monospace" font-size="15" fill="#7dd3c0" text-anchor="middle">take this branch</text>
           </svg>
           <span class="veil"></span>
           <span class="peek">View repository ↗</span>
         </a>
         <div class="proj-body">
           <div class="proj-idx">02 — AI</div>
-          <div class="kicker">Decision-making under hidden information</div>
-          <h3><a href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em Agent</a></h3>
+          <div class="kicker">CS 5100 · decision-making under hidden information</div>
+          <h3><a href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em Agents</a></h3>
+          <div class="role-note">Two-person project · engine, agents and evaluation built from scratch</div>
           <p>
-            Poker is a good problem precisely because you never get to see the whole table. The agent
-            chooses between fold, call and raise by <b>simulating forward</b> from the current state —
-            dealing out the cards it cannot see, playing the hand to showdown a few hundred times per
-            action, and taking the branch with the best average return.
+            Chess is tractable because you can see the board; poker is not. We built a two-player
+            Hold'em engine from the ground up — dealing, blinds, betting rounds, showdown — and put
+            five agents on it: random, never-fold, rule-based, a <b>Monte Carlo hand-strength
+            estimator</b> that samples the unseen cards to price its equity, and an <b>MCTS</b> player
+            that simulates forward along action paths and takes the branch with the best average return.
           </p>
           <p>
-            The part I care about is not the search, it's the <b>measurement</b>. Every version gets
-            played against fixed baselines — a random player, one that never folds, one rule-based —
-            over thousands of hands, both single-round and last-chip-standing. It's the same question
-            I ask about agents at work: did this actually get better, or did it just get different?
+            The real finding was about the <b>benchmark</b>, not the agents. Our first harness scored a
+            fold as a loss, and over <b>10,000 head-to-head hands</b> the rule-based player came out
+            level with one that never folds — a result that cannot be true. The metric was wrong, not
+            the agent: counting folds as losses made disciplined folding invisible. We rebuilt
+            evaluation around chip depletion — 5,000 chips each, play until someone is broke, 100
+            matches — and the ranking inverted. Rule-based beat never-fold <b>100:0</b>.
           </p>
-          <div class="stack"><span>Python</span><span>Monte Carlo tree search</span><span>Rollout evaluation</span><span>Imperfect information</span><span>Baseline benchmarking</span></div>
+          <p>
+            The corrected numbers then refused to agree with our hypothesis. We expected MCTS to win;
+            it finished third, behind the far simpler Monte Carlo estimator. In a game this constrained
+            folding costs little and the rule-based player is hard to punish, so a search that plans
+            several streets ahead has nothing to exploit. Reporting that was more useful than tuning
+            until the results flattered the idea.
+          </p>
+          <div class="stack"><span>Python</span><span>Monte Carlo tree search</span><span>Hand-strength estimation</span><span>Imperfect information</span><span>Benchmark design</span></div>
           <a class="golink" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
             github.com/maxwell142857/texas_holdem
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
@@ -1020,8 +1019,8 @@ footer a:hover{color:var(--accent)}
             Coursework ran along three tracks: <b>AI</b>, <b>distributed systems</b>, and
             <b>databases</b>. The AI work ended in a
             <a class="inline" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em agent</a>
-            — a Monte Carlo tree search player that estimates equity by rollout and has to act on a hand
-            it cannot see, benchmarked against rule-based and never-fold baselines.
+            — five agents on a poker engine we wrote ourselves, and a benchmark we had to redesign
+            once we noticed the first one was scoring folds as losses.
           </p>
           <p>
             Distributed systems meant building the things rather than reading about them: Paxos across
