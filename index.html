@@ -400,14 +400,18 @@ footer a:hover{color:var(--accent)}
             agent output on accuracy, relevance, completeness and coherence; local pre-release runs
             before a change leaves a laptop; online <b>E2E and PRD runs</b> against the real stack; and
             <b>routing-correctness checks</b> that catch a personalized question being handed to a
-            general-purpose skill — a failure aggregate accuracy will never show you.
+            general-purpose skill — a failure aggregate accuracy will never show you. Most of the time
+            the eval is the <b>debugger</b>: a failing case doesn't hand you a grade, it hands you a
+            diagnosis — which skill, which route, which step gave up.
           </p>
           <p>
             With an AI scientist I built a <b>shared eval library</b> so teams measure the same way,
             and tuned the automated routing evaluation until it agreed with the production
             planner/router <b>80–85%</b> of the time. That number is the whole exercise: an offline
             eval nobody trusts is worse than no eval, because it hands you confidence you haven't
-            earned.
+            earned. And it doesn't stop at launch — once an agent is stable we pull real traffic out of
+            <b>production monitoring</b>, sample it, and keep scoring against it, so quality stays a
+            measured thing rather than an assumption that ages badly.
           </p>
           <p>
             I wrote the <b>first skill on the platform</b>, then turned that into a <b>self-service
@@ -446,8 +450,22 @@ footer a:hover{color:var(--accent)}
             timeline — then character generation, keyframe-to-segment mapping, lip sync, and an ffmpeg
             assembly that lays the original audio back over the cut.
           </p>
+          <p>
+            Every change had to answer to the <b>eval</b>. We built an auto-rater framework that scores
+            the pipeline <b>stage by stage</b> rather than only judging the finished video — separate
+            raters on a 1–5 rubric for the storyline, the character reference, the scene prompt, the
+            keyframes, each generated clip and the final cut, with a second set for music videos
+            covering creative blueprint, shot list, performer reference and sentiment match. Where a
+            number could be <b>measured</b> instead of judged, it was: cut precision against detected
+            beats, and LSE-D / LSE-C for lip sync.
+          </p>
+          <p>
+            Batch runs pull their cases from a sheet and write grades into Postgres, so changing prompt
+            composition or keyframe logic shows up as a score moving on a <i>specific stage</i> —
+            rather than a vague sense that the videos look better this week.
+          </p>
         </div>
-        <div class="tagline-r">Video quality · MV pipeline</div>
+        <div class="tagline-r">Auto-raters · Video quality</div>
       </div>
 
       <div class="role rv">
@@ -517,10 +535,10 @@ footer a:hover{color:var(--accent)}
           <span class="peek">Private repository</span>
         </span>
         <div class="proj-body">
-          <div class="proj-idx">01 — Client work</div>
-          <div class="kicker">LINQ Labs · built for and delivered to OpenArt</div>
+          <div class="proj-idx">01 — Product</div>
+          <div class="kicker">Text-to-video platform · shipped and handed off</div>
           <h3>OpenArt</h3>
-          <div class="role-note">One of the engineers on the build · shipped and handed off</div>
+          <div class="role-note">One of the engineers on the build</div>
           <p>
             A text-to-video platform that turns one prompt into a multi-scene film. An LLM
             <b>director</b> refines your concept, a storyboard module breaks it into scenes, and
@@ -533,7 +551,7 @@ footer a:hover{color:var(--accent)}
             2,500-character budget for Kling), and long-running generation streamed to the browser over
             <b>Server-Sent Events</b>.
           </p>
-          <div class="stack"><span>FastAPI</span><span>React · TypeScript</span><span>Gemini / Veo 3.1</span><span>Kling</span><span>Claude</span><span>SSE</span><span>ffmpeg</span><span>GCS</span></div>
+          <div class="stack"><span>FastAPI</span><span>React · TypeScript</span><span>Gemini / Veo 3.1</span><span>Kling</span><span>Claude</span><span>SSE</span><span>ffmpeg</span><span>Auto-rater eval</span><span>Postgres</span><span>GCS</span></div>
         </div>
       </article>
 
@@ -609,25 +627,17 @@ footer a:hover{color:var(--accent)}
           <div class="role-note">Two-person project · engine, agents and evaluation built from scratch</div>
           <p>
             Chess is tractable because you can see the board; poker is not. We built a two-player
-            Hold'em engine from the ground up — dealing, blinds, betting rounds, showdown — and put
-            five agents on it: random, never-fold, rule-based, a <b>Monte Carlo hand-strength
-            estimator</b> that samples the unseen cards to price its equity, and an <b>MCTS</b> player
-            that simulates forward along action paths and takes the branch with the best average return.
+            Hold'em engine from scratch and put five agents on it — random, never-fold, rule-based, a
+            <b>Monte Carlo hand-strength estimator</b>, and an <b>MCTS</b> player that simulates
+            forward and takes the branch with the best average return.
           </p>
           <p>
-            The real finding was about the <b>benchmark</b>, not the agents. Our first harness scored a
-            fold as a loss, and over <b>10,000 head-to-head hands</b> the rule-based player came out
-            level with one that never folds — a result that cannot be true. The metric was wrong, not
-            the agent: counting folds as losses made disciplined folding invisible. We rebuilt
-            evaluation around chip depletion — 5,000 chips each, play until someone is broke, 100
-            matches — and the ranking inverted. Rule-based beat never-fold <b>100:0</b>.
-          </p>
-          <p>
-            The corrected numbers then refused to agree with our hypothesis. We expected MCTS to win;
-            it finished third, behind the far simpler Monte Carlo estimator. In a game this constrained
-            folding costs little and the rule-based player is hard to punish, so a search that plans
-            several streets ahead has nothing to exploit. Reporting that was more useful than tuning
-            until the results flattered the idea.
+            The finding was about the <b>benchmark</b>, not the agents. Our first harness scored a fold
+            as a loss, so over 10,000 hands the rule-based player came out level with one that never
+            folds — which cannot be true. The metric was wrong: counting folds as losses made
+            disciplined folding invisible. Rebuilt around chip depletion, the ranking inverted. MCTS
+            then placed third, behind the simpler estimator and against our own hypothesis — and we
+            reported that rather than tuning until the numbers agreed with us.
           </p>
           <div class="stack"><span>Python</span><span>Monte Carlo tree search</span><span>Hand-strength estimation</span><span>Imperfect information</span><span>Benchmark design</span></div>
           <a class="golink" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
@@ -1099,10 +1109,17 @@ footer a:hover{color:var(--accent)}
           measurable output, scoped identity, a release path with teeth.
         </p>
         <p>
-          <b>Evaluation</b> is the part I've gone deepest on. Not a score printed at the end of a run —
-          a pipeline that sits across the whole release, so a regression has somewhere to surface
-          before a user finds it. The hard part was never building the harness; it's getting the
-          harness to agree with production closely enough that people act on what it says.
+          <b>Evaluation</b> is the part I've gone deepest on, and I think it gets misread as a report
+          card. A score at the end of a run is the least of what it does. Eval is how you
+          <b>debug</b> an agent — a failing case is a diagnosis, not a grade. It's how quality
+          actually moves, because you cannot improve what you cannot see. And it doesn't end at
+          launch: once an agent is stable, you sample real traffic back out of production and keep
+          scoring it, because what was right last release isn't automatically right this one.
+        </p>
+        <p>
+          Which makes the hard part obvious in hindsight. Building the harness was never it. Getting
+          the harness to agree with production closely enough that people act on what it says — that's
+          the work.
         </p>
         <p>
           Outside work I ship game-automation tools, mostly because a problem you can watch
