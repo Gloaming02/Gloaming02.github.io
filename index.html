@@ -350,6 +350,7 @@ footer a:hover{color:var(--accent)}
     <a href="#experience">Experience</a>
     <a href="#work">Work</a>
     <a href="#archive">Archive</a>
+    <a href="#education">Education</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -471,69 +472,26 @@ footer a:hover{color:var(--accent)}
       </div>
 
       <div class="role rv">
-        <div class="when">Summer 2024</div>
+        <div class="when">05/2024 — 08/2024</div>
         <div>
-          <h4>The City Tutors</h4>
+          <h4>The City Tutors <small>· New York, NY</small></h4>
           <div class="what">Software Engineer Intern — Django platform</div>
           <p>
-            The summer after my first year of the master's, on the <b>Django</b> platform behind a
-            nonprofit that runs free tutoring in New York — the system that pairs volunteer tutors
-            with students and keeps track of what happens after the match. I worked on the matching
-            and profile side, adding an age-range dimension to tutor–tutee pairing end to end, from
-            the form field through the model and its migration.
+            A nonprofit that runs free tutoring across New York. The <b>Django</b> platform behind it
+            pairs volunteer tutors with students, and it was assigning the wrong ones. I refactored the
+            matching algorithm and put real validation rules around it, which cut mismatches by
+            <b>35%</b> and brought assignment accuracy to <b>95%</b> — the kind of bug where the metric
+            is a real person showing up to the wrong session.
+          </p>
+          <p>
+            From there, more ways to narrow the search: a student age-range filter built end to end
+            through a Django REST endpoint and a schema migration, across <b>100+ active profiles</b>,
+            and postal-code filtering I proposed and shipped so tutors and students actually match
+            geographically. I also went through the slow endpoints and cut unnecessary multi-table
+            joins out of the queries, taking about <b>20%</b> off latency.
           </p>
         </div>
-        <div class="tagline-r">Python · Django</div>
-      </div>
-
-      <div class="role rv">
-        <div class="when">09/2023 — 05/2025</div>
-        <div>
-          <h4>Northeastern University</h4>
-          <div class="what">M.S. Computer Science · GPA 4.0 / 4.0</div>
-          <p>
-            Coursework ran along three tracks: <b>AI</b>, <b>distributed systems</b>, and
-            <b>databases</b>. The AI work ended in a
-            <a class="inline" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em agent</a>
-            — a Monte Carlo tree search player that estimates equity by rollout and has to act on a hand
-            it cannot see, benchmarked against rule-based and never-fold baselines.
-          </p>
-          <p>
-            Distributed systems meant building the things rather than reading about them: Paxos across
-            five replicas, a serverless monitoring pipeline on AWS, transfer and name protocols written
-            from the socket up.
-          </p>
-          <p>
-            The database track I took the long way round — the same used-car marketplace rebuilt three
-            times, once on a
-            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System" target="_blank" rel="noopener">relational schema</a>,
-            once as
-            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System-With-MongoDB" target="_blank" rel="noopener">documents in MongoDB</a>,
-            and once with
-            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System-With-Redis" target="_blank" rel="noopener">Redis</a>
-            in front of it. Rewriting one system against three storage models teaches you more about what
-            a database is <i>for</i> than three unrelated projects would.
-          </p>
-          <p style="color:var(--fg-faint);font-size:.88rem">
-            Undergrad: B.S. Computer Science, Baylor University (2019–2023).
-          </p>
-        </div>
-        <div class="tagline-r">AI · Systems · Databases</div>
-      </div>
-
-      <div class="role rv">
-        <div class="when">01/2023 — 05/2023</div>
-        <div>
-          <h4>Baylor University</h4>
-          <div class="what">Software Researcher — distributed systems</div>
-          <p>
-            A semester spent on how large microservice systems go wrong. I built the anti-pattern detector
-            shown below — a Python/Flask pipeline that ingests live <b>Jaeger telemetry</b>, reconstructs the
-            call graph across <b>37+ services</b>, and runs DFS-based analysis to flag cyclic dependencies
-            and bottlenecks that nobody notices until something times out.
-          </p>
-        </div>
-        <div class="tagline-r">Research</div>
+        <div class="tagline-r">Python · Django · SQL</div>
       </div>
     </div>
   </div>
@@ -545,18 +503,13 @@ footer a:hover{color:var(--accent)}
     <div class="sec-head rv">
       <span class="sec-num">02</span>
       <h2 class="sec-title">Selected Work</h2>
-      <span class="sec-note">Four things worth showing</span>
+      <span class="sec-note">Five things worth showing</span>
     </div>
 
     <div class="work">
 
       <!-- OpenArt -->
       <article class="proj feature rv">
-        <span class="proj-media">
-          <img src="assets/openart-wizard.png" alt="OpenArt project wizard: video concept, character input mode, director model and video provider selection">
-          <span class="veil"></span>
-          <span class="peek">Private repository</span>
-        </span>
         <div class="proj-body">
           <div class="proj-idx">01 — Client work</div>
           <div class="kicker">LINQ Labs · built for and delivered to OpenArt</div>
@@ -575,6 +528,99 @@ footer a:hover{color:var(--accent)}
             <b>Server-Sent Events</b>.
           </p>
           <div class="stack"><span>FastAPI</span><span>React · TypeScript</span><span>Gemini / Veo 3.1</span><span>Kling</span><span>Claude</span><span>SSE</span><span>ffmpeg</span><span>GCS</span></div>
+        </div>
+        <span class="proj-media">
+          <img src="assets/openart-wizard.png" alt="OpenArt project wizard: video concept, character input mode, director model and video provider selection">
+          <span class="veil"></span>
+          <span class="peek">Private repository</span>
+        </span>
+      </article>
+
+      <!-- texas hold'em -->
+      <article class="proj rv">
+        <a class="proj-media" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
+          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: a decision node branching into fold, call and raise, each fanning out into Monte Carlo rollouts with an average return">
+            <!-- root -->
+            <rect x="300" y="40" width="200" height="52" rx="9" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.20)"/>
+            <text x="400" y="63" font-family="monospace" font-size="17" fill="#ece9e3" text-anchor="middle">hand + board</text>
+            <text x="400" y="82" font-family="monospace" font-size="14" fill="#5f5d58" text-anchor="middle">opponent hidden</text>
+
+            <!-- branches -->
+            <g stroke="#7dd3c0" stroke-width="1.3" opacity=".75" fill="none">
+              <path d="M400 92 C400 130 170 120 150 158"/>
+              <path d="M400 92 V158"/>
+              <path d="M400 92 C400 130 630 120 650 158"/>
+            </g>
+            <g fill="#7dd3c0">
+              <path d="M145 152 l8 8 -11 3 z"/><path d="M395 152 l5 8 5 -8 z"/><path d="M655 152 l-8 8 11 3 z"/>
+            </g>
+
+            <!-- actions -->
+            <g font-family="monospace" font-size="17" text-anchor="middle">
+              <rect x="80" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.18)"/>
+              <text x="150" y="186" fill="#9a978f">fold</text>
+              <rect x="330" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.18)"/>
+              <text x="400" y="186" fill="#9a978f">call</text>
+              <rect x="580" y="160" width="140" height="40" rx="8" fill="rgba(125,211,192,.14)" stroke="#7dd3c0"/>
+              <text x="650" y="186" fill="#ece9e3">raise</text>
+            </g>
+
+            <!-- rollout fans -->
+            <g stroke="rgba(255,255,255,.16)" stroke-width="1" fill="none">
+              <path d="M150 200 L96 288 M150 200 L123 288 M150 200 L150 288 M150 200 L177 288 M150 200 L204 288"/>
+              <path d="M400 200 L346 288 M400 200 L373 288 M400 200 L400 288 M400 200 L427 288 M400 200 L454 288"/>
+            </g>
+            <g stroke="rgba(125,211,192,.45)" stroke-width="1" fill="none">
+              <path d="M650 200 L596 288 M650 200 L623 288 M650 200 L650 288 M650 200 L677 288 M650 200 L704 288"/>
+            </g>
+            <g fill="#5f5d58">
+              <circle cx="96" cy="294" r="4"/><circle cx="123" cy="294" r="4"/><circle cx="150" cy="294" r="4"/>
+              <circle cx="177" cy="294" r="4"/><circle cx="204" cy="294" r="4"/>
+              <circle cx="346" cy="294" r="4"/><circle cx="373" cy="294" r="4"/><circle cx="400" cy="294" r="4"/>
+              <circle cx="427" cy="294" r="4"/><circle cx="454" cy="294" r="4"/>
+            </g>
+            <g fill="#7dd3c0">
+              <circle cx="596" cy="294" r="4"/><circle cx="623" cy="294" r="4"/><circle cx="650" cy="294" r="4"/>
+              <circle cx="677" cy="294" r="4"/><circle cx="704" cy="294" r="4"/>
+            </g>
+
+            <text x="400" y="336" font-family="monospace" font-size="15" fill="#5f5d58" text-anchor="middle">
+              deal the unseen cards · play to showdown · 300× per action
+            </text>
+
+            <!-- returns -->
+            <line x1="60" y1="368" x2="740" y2="368" stroke="rgba(255,255,255,.10)"/>
+            <g font-family="monospace" font-size="16" text-anchor="middle">
+              <text x="150" y="402" fill="#5f5d58">avg  −12</text>
+              <text x="400" y="402" fill="#5f5d58">avg  +31</text>
+              <text x="650" y="402" fill="#7dd3c0">avg  +58</text>
+              <text x="650" y="432" fill="#7dd3c0" font-size="14">← take this branch</text>
+            </g>
+          </svg>
+          <span class="veil"></span>
+          <span class="peek">View repository ↗</span>
+        </a>
+        <div class="proj-body">
+          <div class="proj-idx">02 — AI</div>
+          <div class="kicker">Decision-making under hidden information</div>
+          <h3><a href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em Agent</a></h3>
+          <p>
+            Poker is a good problem precisely because you never get to see the whole table. The agent
+            chooses between fold, call and raise by <b>simulating forward</b> from the current state —
+            dealing out the cards it cannot see, playing the hand to showdown a few hundred times per
+            action, and taking the branch with the best average return.
+          </p>
+          <p>
+            The part I care about is not the search, it's the <b>measurement</b>. Every version gets
+            played against fixed baselines — a random player, one that never folds, one rule-based —
+            over thousands of hands, both single-round and last-chip-standing. It's the same question
+            I ask about agents at work: did this actually get better, or did it just get different?
+          </p>
+          <div class="stack"><span>Python</span><span>Monte Carlo tree search</span><span>Rollout evaluation</span><span>Imperfect information</span><span>Baseline benchmarking</span></div>
+          <a class="golink" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
+            github.com/maxwell142857/texas_holdem
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
         </div>
       </article>
 
@@ -637,7 +683,7 @@ footer a:hover{color:var(--accent)}
           <span class="peek">View repository ↗</span>
         </a>
         <div class="proj-body">
-          <div class="proj-idx">02 — Computer vision</div>
+          <div class="proj-idx">03 — Computer vision</div>
           <div class="kicker">Real-time · shipped as a Windows release</div>
           <h3><a href="https://github.com/Gloaming02/nte-rhythm-auto" target="_blank" rel="noopener">nte-rhythm-auto</a></h3>
           <p>
@@ -719,7 +765,7 @@ footer a:hover{color:var(--accent)}
           <span class="peek">View repository ↗</span>
         </a>
         <div class="proj-body">
-          <div class="proj-idx">03 — Systems</div>
+          <div class="proj-idx">04 — Systems</div>
           <div class="kicker">C++17 · no third-party dependencies</div>
           <h3><a href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">mini-distributed-kv</a></h3>
           <p>
@@ -745,11 +791,11 @@ footer a:hover{color:var(--accent)}
         <span class="proj-media">
           <img src="assets/microservices-graph.png" alt="Service dependency graph with cyclic dependencies highlighted in red">
           <span class="veil"></span>
-          <span class="peek">Baylor University · research</span>
+          <span class="peek">Senior research · Baylor University</span>
         </span>
         <div class="proj-body">
-          <div class="proj-idx">04 — Research</div>
-          <div class="kicker">Distributed systems · Baylor University</div>
+          <div class="proj-idx">05 — Research</div>
+          <div class="kicker">Senior research · Baylor University</div>
           <h3>Microservice Anti-Pattern Detector</h3>
           <p>
             Large microservice estates rot in predictable ways: cycles between services, a single
@@ -949,11 +995,74 @@ footer a:hover{color:var(--accent)}
   </div>
 </section>
 
+<!-- ══════════════════════════  EDUCATION  ══════════════════════════ -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Education</h2>
+      <span class="sec-note">2019 — 2025</span>
+    </div>
+
+    <div class="roles">
+      <div class="role rv">
+        <div class="when">09/2023 — 05/2025</div>
+        <div>
+          <h4>Northeastern University</h4>
+          <div class="what">M.S. Computer Science · GPA 4.0 / 4.0</div>
+          <p>
+            Coursework ran along three tracks: <b>AI</b>, <b>distributed systems</b>, and
+            <b>databases</b>. The AI work ended in a
+            <a class="inline" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em agent</a>
+            — a Monte Carlo tree search player that estimates equity by rollout and has to act on a hand
+            it cannot see, benchmarked against rule-based and never-fold baselines.
+          </p>
+          <p>
+            Distributed systems meant building the things rather than reading about them: Paxos across
+            five replicas, a serverless monitoring pipeline on AWS, transfer and name protocols written
+            from the socket up.
+          </p>
+          <p>
+            The database track I took the long way round — the same used-car marketplace rebuilt three
+            times, once on a
+            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System" target="_blank" rel="noopener">relational schema</a>,
+            once as
+            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System-With-MongoDB" target="_blank" rel="noopener">documents in MongoDB</a>,
+            and once with
+            <a class="inline" href="https://github.com/Gloaming02/Used-Car-Trading-System-With-Redis" target="_blank" rel="noopener">Redis</a>
+            in front of it. Rewriting one system against three storage models teaches you more about what
+            a database is <i>for</i> than three unrelated projects would.
+          </p>
+        </div>
+        <div class="tagline-r">AI · Systems · Databases</div>
+      </div>
+
+      <div class="role rv">
+        <div class="when">09/2019 — 05/2023</div>
+        <div>
+          <h4>Baylor University <small>· Waco, TX</small></h4>
+          <div class="what">B.S. Computer Science</div>
+          <p>
+            Where the systems half of my interests came from. My final semester went into
+            <b>senior research on microservice architecture</b> — a detector for the ways large
+            service estates quietly rot, which is the
+            <a class="inline" href="#work">anti-pattern detector</a> further up: a Python/Flask
+            pipeline that ingests live <b>Jaeger telemetry</b>, reconstructs the call graph across
+            <b>37+ services</b>, and runs DFS-based analysis to flag cyclic dependencies and
+            bottlenecks nobody notices until something times out.
+          </p>
+        </div>
+        <div class="tagline-r">Undergraduate · Senior research</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════════════  ABOUT  ══════════════════════════ -->
 <section id="about">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="sec-num">04</span>
+      <span class="sec-num">05</span>
       <h2 class="sec-title">About</h2>
       <span class="sec-note">The short version</span>
     </div>
