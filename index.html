@@ -464,6 +464,28 @@ footer a:hover{color:var(--accent)}
       </div>
 
       <div class="role rv">
+        <div class="when">06/2025 — 10/2025</div>
+        <div>
+          <h4>BeaconFire</h4>
+          <div class="what">Software Engineer — Java microservices</div>
+          <p>
+            Four months on an online forum decomposed into <b>Spring Boot microservices</b> with a
+            six-person team — a Spring Cloud Gateway doing JWT auth, Eureka for discovery, a central
+            config server, MySQL and MongoDB behind the services, S3 for uploads, and RabbitMQ for the
+            work that shouldn't block a request. The
+            <a class="inline" href="#work">architecture is drawn out below</a>.
+          </p>
+          <p>
+            I worked across the graph rather than owning a slice of it — message and email, user and
+            auth, the gateway, and the shared configuration every service reads from — and spent a real
+            part of the time reviewing teammates' branches and unblocking them. On a team splitting a
+            service graph six ways, that is most of what keeps it moving.
+          </p>
+        </div>
+        <div class="tagline-r">Java · Spring Cloud</div>
+      </div>
+
+      <div class="role rv">
         <div class="when">05/2024 — 08/2024</div>
         <div>
           <h4>The City Tutors <small>· New York, NY</small></h4>
@@ -622,57 +644,82 @@ footer a:hover{color:var(--accent)}
       <!-- online forum -->
       <article class="proj rv">
         <span class="proj-media">
-          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Forum architecture: React through a JWT gateway to Spring Boot services registered with Eureka, backed by MySQL, MongoDB and S3, with the message service publishing to RabbitMQ for an email consumer">
-            <g font-family="monospace" font-size="16" fill="#9a978f">
-              <rect x="26" y="52" width="748" height="46" rx="8" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.10)" stroke-dasharray="5 5"/>
-              <text x="400" y="81" text-anchor="middle" font-size="15" fill="#5f5d58">Eureka service discovery · central config server</text>
+          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Forum architecture: React through a Spring Cloud Gateway to six Spring Boot services registered with Eureka and configured from a central config server, backed by MySQL, MongoDB and S3, with the message service publishing over RabbitMQ to an email service">
+            <g font-family="monospace" font-size="15" fill="#9a978f">
+              <!-- platform strip -->
+              <rect x="150" y="26" width="300" height="40" rx="7" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/>
+              <text x="300" y="51" text-anchor="middle" font-size="14" fill="#5f5d58">eureka-server · discovery</text>
+              <rect x="466" y="26" width="316" height="40" rx="7" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.12)" stroke-dasharray="4 4"/>
+              <text x="624" y="51" text-anchor="middle" font-size="14" fill="#5f5d58">config-server · config-repo</text>
 
-              <rect x="26" y="214" width="104" height="52" rx="8" fill="none" stroke="rgba(255,255,255,.20)"/>
-              <text x="78" y="246" text-anchor="middle">React</text>
+              <!-- client -->
+              <rect x="14" y="256" width="96" height="46" rx="7" fill="none" stroke="rgba(255,255,255,.20)"/>
+              <text x="62" y="285" text-anchor="middle">React 18</text>
+              <path d="M110 279 H142" stroke="rgba(255,255,255,.28)"/>
+              <path d="M136 274 l8 5 -8 5 z" fill="rgba(255,255,255,.40)"/>
 
-              <path d="M130 240 H166" stroke="rgba(255,255,255,.30)" stroke-width="1.4"/>
-              <path d="M160 235 l8 5 -8 5 z" fill="rgba(255,255,255,.45)"/>
+              <!-- gateway -->
+              <rect x="144" y="248" width="112" height="62" rx="7" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.24)"/>
+              <text x="200" y="275" text-anchor="middle" fill="#ece9e3">api-gateway</text>
+              <text x="200" y="296" text-anchor="middle" font-size="13" fill="#5f5d58">JWT auth</text>
 
-              <rect x="168" y="200" width="118" height="80" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.22)"/>
-              <text x="227" y="234" text-anchor="middle" fill="#ece9e3">gateway</text>
-              <text x="227" y="256" text-anchor="middle" font-size="14" fill="#5f5d58">JWT auth</text>
-
-              <g stroke="rgba(255,255,255,.20)" fill="none">
-                <path d="M286 224 C330 224 320 148 356 148"/>
-                <path d="M286 234 C330 234 320 208 356 208"/>
-                <path d="M286 248 C330 248 320 268 356 268"/>
+              <!-- gateway -> services -->
+              <g stroke="rgba(255,255,255,.18)" fill="none">
+                <path d="M256 268 C296 268 288 122 314 122"/>
+                <path d="M256 272 C296 272 288 180 314 180"/>
+                <path d="M256 276 C296 276 288 238 314 238"/>
+                <path d="M256 282 C296 282 288 296 314 296"/>
+                <path d="M256 286 C296 286 288 354 314 354"/>
+                <path d="M256 290 C296 290 288 412 314 412"/>
               </g>
-              <path d="M286 258 C336 258 320 348 356 348" stroke="#7dd3c0" stroke-width="1.5" fill="none"/>
 
+              <!-- services -->
               <g stroke="rgba(255,255,255,.16)" fill="none">
-                <rect x="356" y="126" width="150" height="44" rx="7"/>
-                <rect x="356" y="186" width="150" height="44" rx="7"/>
-                <rect x="356" y="246" width="150" height="44" rx="7"/>
+                <rect x="314" y="100" width="164" height="44" rx="7"/>
+                <rect x="314" y="158" width="164" height="44" rx="7"/>
+                <rect x="314" y="216" width="164" height="44" rx="7"/>
+                <rect x="314" y="274" width="164" height="44" rx="7"/>
+                <rect x="314" y="332" width="164" height="44" rx="7"/>
+                <rect x="314" y="390" width="164" height="44" rx="7"/>
               </g>
-              <text x="431" y="154" text-anchor="middle">auth · user</text>
-              <text x="431" y="214" text-anchor="middle">post · reply</text>
-              <text x="431" y="274" text-anchor="middle">history · file</text>
+              <g text-anchor="middle" fill="#c9c6c0">
+                <text x="396" y="128">auth-service</text>
+                <text x="396" y="186">user-service</text>
+                <text x="396" y="244">post-service</text>
+                <text x="396" y="302">history-service</text>
+                <text x="396" y="360">file-service</text>
+                <text x="396" y="418">message-service</text>
+              </g>
 
-              <rect x="356" y="326" width="150" height="44" rx="7" fill="rgba(125,211,192,.16)" stroke="#7dd3c0"/>
-              <text x="431" y="354" text-anchor="middle" fill="#ece9e3">message</text>
-
+              <!-- services -> stores -->
               <g stroke="rgba(255,255,255,.16)" fill="none">
-                <path d="M506 148 H562"/><path d="M506 208 H562"/><path d="M506 268 H562"/>
+                <path d="M478 122 C516 122 512 152 540 152"/>
+                <path d="M478 180 H540"/>
+                <path d="M478 296 C516 296 512 174 540 174"/>
+                <path d="M478 238 H540"/>
+                <path d="M478 354 H540"/>
               </g>
-              <g fill="rgba(255,255,255,.30)">
-                <path d="M556 143 l8 5 -8 5 z"/><path d="M556 203 l8 5 -8 5 z"/><path d="M556 263 l8 5 -8 5 z"/>
+              <g stroke="rgba(255,255,255,.16)" fill="none">
+                <rect x="540" y="140" width="150" height="44" rx="7"/>
+                <rect x="540" y="216" width="150" height="44" rx="7"/>
+                <rect x="540" y="332" width="150" height="44" rx="7"/>
               </g>
-              <g font-size="15" fill="#5f5d58">
-                <text x="570" y="154">MySQL · RDS</text>
-                <text x="570" y="214">MongoDB</text>
-                <text x="570" y="274">S3</text>
+              <g text-anchor="middle" font-size="14" fill="#9a978f">
+                <text x="615" y="168">MySQL · RDS</text>
+                <text x="615" y="244">MongoDB</text>
+                <text x="615" y="360">AWS S3</text>
               </g>
 
-              <path d="M506 348 H556" stroke="#7dd3c0" stroke-width="1.5" stroke-dasharray="5 4"/>
-              <path d="M550 343 l8 5 -8 5 z" fill="#7dd3c0"/>
-              <rect x="560" y="326" width="118" height="44" rx="7" fill="rgba(125,211,192,.08)" stroke="#7dd3c0"/>
-              <text x="619" y="354" text-anchor="middle" fill="#ece9e3">email</text>
-              <text x="619" y="394" text-anchor="middle" font-size="15" fill="#7dd3c0">async over RabbitMQ</text>
+              <!-- async hop -->
+              <path d="M478 412 H524" stroke="rgba(255,255,255,.22)" stroke-dasharray="5 4" fill="none"/>
+              <path d="M518 407 l8 5 -8 5 z" fill="rgba(255,255,255,.30)"/>
+              <rect x="526" y="390" width="118" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.16)"/>
+              <text x="585" y="418" text-anchor="middle">RabbitMQ</text>
+              <path d="M644 412 H674" stroke="rgba(255,255,255,.22)" stroke-dasharray="5 4" fill="none"/>
+              <path d="M668 407 l8 5 -8 5 z" fill="rgba(255,255,255,.30)"/>
+              <rect x="676" y="390" width="112" height="44" rx="7" fill="none" stroke="rgba(255,255,255,.16)"/>
+              <text x="732" y="418" text-anchor="middle">email-service</text>
+              <text x="660" y="462" text-anchor="middle" font-size="13" fill="#5f5d58">asynchronous — never blocks the request</text>
             </g>
           </svg>
           <span class="veil"></span>
@@ -681,19 +728,24 @@ footer a:hover{color:var(--accent)}
           <div class="proj-idx">03 — Backend</div>
           <div class="kicker">Six-person team · Spring Cloud microservices</div>
           <h3>Online Forum</h3>
-          <div class="role-note">Message and email services, plus the shared configuration</div>
+          <div class="role-note">Worked across the services, and reviewed the rest</div>
           <p>
             A forum taken apart properly. React 18 on the front; behind it a <b>Spring Cloud Gateway</b>
-            doing JWT auth over eight <b>Spring Boot</b> services registered with <b>Eureka</b>, each
+            doing JWT auth over seven <b>Spring Boot</b> services registered with <b>Eureka</b>, each
             pulling its settings from a central config server. Posts and replies live in MongoDB, users
             and history in MySQL on RDS, uploads in S3.
           </p>
           <p>
-            Mine was the contact-and-notify path, end to end: the form in React, the JWT-gated endpoint
-            behind it, the <b>message service</b> that accepts and stores it, and the <b>RabbitMQ</b> hop
-            to an <b>email service</b> that consumes asynchronously — so a slow mail provider can never
-            block a user's request. The shared Spring Cloud configuration those services read from was
-            mine too.
+            I worked across the graph rather than in one corner of it — message and email, user and
+            auth, the gateway, and the shared Spring Cloud configuration every service reads from — and
+            a real share of the time went into reviewing teammates' branches and unpicking whatever had
+            them stuck. On a six-person team splitting a service graph, that is most of what keeps it
+            moving.
+          </p>
+          <p>
+            The piece I'd point at architecturally is the notify path: a JWT-gated endpoint into the
+            message service, then a <b>RabbitMQ</b> hop to an email consumer, so a slow mail provider
+            can never block a user's request.
           </p>
           <div class="stack"><span>Java</span><span>Spring Boot</span><span>Spring Cloud Gateway</span><span>Eureka</span><span>RabbitMQ</span><span>JWT</span><span>MySQL · MongoDB</span><span>AWS S3</span><span>React 18</span></div>
         </div>
