@@ -266,6 +266,8 @@ section{padding:clamp(80px,13vh,150px) 0;position:relative}
 .role p:last-child{margin-bottom:0}
 .role p b{color:var(--fg);font-weight:500}
 .role p code{font-family:var(--mono);font-size:.86em;color:var(--fg)}
+.plabel{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fg-faint);margin:0 0 7px}
 .role p a.inline{color:var(--accent);border-bottom:1px solid rgba(125,211,192,.35);
   padding-bottom:1px;transition:border-color .3s}
 .role p a.inline:hover{border-color:var(--accent)}
@@ -394,11 +396,13 @@ footer a:hover{color:var(--accent)}
         <div>
           <h4>Intuit <small>· Mountain View, CA</small></h4>
           <div class="what">Software Engineer — TurboTax AI Agent Platform</div>
+          <div class="plabel">Platform</div>
           <p>
             I work on the agent platform behind TurboTax's AI experiences — composable skills, tool
             use, and the <b>evaluation</b> around them. Evaluation runs the length of the release
             rather than sitting at the end of it.
           </p>
+          <div class="plabel">Evaluation</div>
           <p>
             An <b>LLM-as-a-judge</b> framework scores output on accuracy, relevance, completeness and
             coherence. End-to-end runs happen in the development environment before a change ships,
@@ -406,6 +410,7 @@ footer a:hover{color:var(--accent)}
             general-purpose skill. With an AI scientist I built a shared eval library so teams measure
             the same way.
           </p>
+          <div class="plabel">Production</div>
           <p>
             Some of it is scoring what the agent should <i>refuse</i> — ask a tax assistant to debug
             your code and the correct answer is no, which is harder to grade than a good answer.
@@ -413,10 +418,11 @@ footer a:hover{color:var(--accent)}
             scoring it. Most of the time the eval is the <b>debugger</b>: a failing case hands you a
             diagnosis, not a grade.
           </p>
+          <div class="plabel">Developer experience</div>
           <p>
-            The platform has two customers, and only one is a taxpayer. I wrote the first skill on it,
-            then turned that into a <b>self-service authoring framework</b> so other teams could ship
-            without coming through me. I also migrated a legacy multi-agent system onto modular,
+            The platform has two customers, and only one is a taxpayer. I built the <b>first skill on
+            our agent runtime</b>, then turned that work into a <b>self-service authoring framework</b>
+            so other teams could ship without coming through me. I also migrated a legacy multi-agent system onto modular,
             independently testable skills behind scoped agent identity and feature flags.
           </p>
         </div>
@@ -528,6 +534,98 @@ footer a:hover{color:var(--accent)}
 
     <div class="work">
 
+      <!-- texas hold'em -->
+      <article class="proj rv">
+        <a class="proj-media" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
+          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: a decision node branching into fold, call and raise, each fanning out into Monte Carlo rollouts with an average return">
+            <!-- root -->
+            <rect x="300" y="40" width="200" height="52" rx="9" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.42)"/>
+            <text x="400" y="63" font-family="monospace" font-size="21" fill="#ece9e3" text-anchor="middle">hand + board</text>
+            <text x="400" y="82" font-family="monospace" font-size="18" fill="#8f8c84" text-anchor="middle">opponent hidden</text>
+
+            <!-- branches -->
+            <g stroke="#7dd3c0" stroke-width="1.3" opacity=".75" fill="none">
+              <path d="M400 92 C400 130 170 120 150 158"/>
+              <path d="M400 92 V158"/>
+              <path d="M400 92 C400 130 630 120 650 158"/>
+            </g>
+            <g fill="#7dd3c0">
+              <path d="M145 152 l8 8 -11 3 z"/><path d="M395 152 l5 8 5 -8 z"/><path d="M655 152 l-8 8 11 3 z"/>
+            </g>
+
+            <!-- actions -->
+            <g font-family="monospace" font-size="21" text-anchor="middle">
+              <rect x="80" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="150" y="186" fill="#cbc8c2">fold</text>
+              <rect x="330" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
+              <text x="400" y="186" fill="#cbc8c2">call</text>
+              <rect x="580" y="160" width="140" height="40" rx="8" fill="rgba(125,211,192,.14)" stroke="#7dd3c0"/>
+              <text x="650" y="186" fill="#ece9e3">raise</text>
+            </g>
+
+            <!-- rollout fans -->
+            <g stroke="rgba(255,255,255,.26)" stroke-width="1" fill="none">
+              <path d="M150 200 L96 288 M150 200 L123 288 M150 200 L150 288 M150 200 L177 288 M150 200 L204 288"/>
+              <path d="M400 200 L346 288 M400 200 L373 288 M400 200 L400 288 M400 200 L427 288 M400 200 L454 288"/>
+            </g>
+            <g stroke="rgba(125,211,192,.45)" stroke-width="1" fill="none">
+              <path d="M650 200 L596 288 M650 200 L623 288 M650 200 L650 288 M650 200 L677 288 M650 200 L704 288"/>
+            </g>
+            <g fill="#8f8c84">
+              <circle cx="96" cy="294" r="4"/><circle cx="123" cy="294" r="4"/><circle cx="150" cy="294" r="4"/>
+              <circle cx="177" cy="294" r="4"/><circle cx="204" cy="294" r="4"/>
+              <circle cx="346" cy="294" r="4"/><circle cx="373" cy="294" r="4"/><circle cx="400" cy="294" r="4"/>
+              <circle cx="427" cy="294" r="4"/><circle cx="454" cy="294" r="4"/>
+            </g>
+            <g fill="#7dd3c0">
+              <circle cx="596" cy="294" r="4"/><circle cx="623" cy="294" r="4"/><circle cx="650" cy="294" r="4"/>
+              <circle cx="677" cy="294" r="4"/><circle cx="704" cy="294" r="4"/>
+            </g>
+
+            <text x="400" y="336" font-family="monospace" font-size="19" fill="#8f8c84" text-anchor="middle">
+              deal the unseen cards · play to showdown · hundreds of times per path
+            </text>
+
+            <!-- returns -->
+            <line x1="60" y1="368" x2="740" y2="368" stroke="rgba(255,255,255,.42)"/>
+            <text x="60" y="392" font-family="monospace" font-size="18" fill="#8f8c84">average chip return</text>
+            <g>
+              <rect x="100" y="404" width="42" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
+              <rect x="350" y="404" width="86" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
+              <rect x="600" y="404" width="128" height="9" rx="4" fill="#7dd3c0"/>
+            </g>
+            <text x="650" y="440" font-family="monospace" font-size="19" fill="#7dd3c0" text-anchor="middle">take this branch</text>
+          </svg>
+          <span class="veil"></span>
+          <span class="peek">View repository ↗</span>
+        </a>
+        <div class="proj-body">
+          <div class="proj-idx">01 — AI</div>
+          <div class="kicker">CS 5100 · decision-making under hidden information</div>
+          <h3><a href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em Agents</a></h3>
+          <div class="role-note">Two-person project · engine, agents and evaluation built from scratch</div>
+          <p>
+            Chess is tractable because you can see the board; poker is not. We built a two-player
+            Hold'em engine from scratch and put five agents on it — random, never-fold, rule-based, a
+            <b>Monte Carlo hand-strength estimator</b>, and an <b>MCTS</b> player that simulates
+            forward and takes the branch with the best average return.
+          </p>
+          <p>
+            The finding was about the <b>benchmark</b>, not the agents. Our first harness scored a fold
+            as a loss, so over 10,000 hands the rule-based player came out level with one that never
+            folds — which cannot be true. The metric was wrong: counting folds as losses made
+            disciplined folding invisible. Rebuilt around chip depletion, the ranking inverted. MCTS
+            then placed third, behind the simpler estimator and against our own hypothesis — and we
+            reported that rather than tuning until the numbers agreed with us.
+          </p>
+          <div class="stack"><span>Python</span><span>Monte Carlo tree search</span><span>Hand-strength estimation</span><span>Imperfect information</span><span>Benchmark design</span></div>
+          <a class="golink" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
+            github.com/maxwell142857/texas_holdem
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
+          </a>
+        </div>
+      </article>
+
       <!-- online forum -->
       <article class="proj rv">
         <span class="proj-media">
@@ -612,7 +710,7 @@ footer a:hover{color:var(--accent)}
           <span class="veil"></span>
         </span>
         <div class="proj-body">
-          <div class="proj-idx">01 — Backend</div>
+          <div class="proj-idx">02 — Backend</div>
           <div class="kicker">Six-person team · Spring Cloud microservices</div>
           <h3>Online Forum</h3>
           <div class="role-note">Worked across the services, and reviewed the rest</div>
@@ -699,7 +797,7 @@ footer a:hover{color:var(--accent)}
           <span class="peek">View repository ↗</span>
         </a>
         <div class="proj-body">
-          <div class="proj-idx">02 — Systems</div>
+          <div class="proj-idx">03 — Systems</div>
           <div class="kicker">C++17 · no third-party dependencies</div>
           <h3><a href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">mini-distributed-kv</a></h3>
           <p>
@@ -715,98 +813,6 @@ footer a:hover{color:var(--accent)}
           <div class="stack"><span>C++17</span><span>WAL / LSM</span><span>SSTable compaction</span><span>Replication</span><span>Raw TCP</span></div>
           <a class="golink" href="https://github.com/Gloaming02/mini-distributed-kv-cpp" target="_blank" rel="noopener">
             github.com/Gloaming02/mini-distributed-kv-cpp
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <!-- texas hold'em -->
-      <article class="proj rv">
-        <a class="proj-media" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
-          <svg class="art" viewBox="0 0 800 500" role="img" aria-label="Diagram: a decision node branching into fold, call and raise, each fanning out into Monte Carlo rollouts with an average return">
-            <!-- root -->
-            <rect x="300" y="40" width="200" height="52" rx="9" fill="rgba(125,211,192,.10)" stroke="rgba(255,255,255,.42)"/>
-            <text x="400" y="63" font-family="monospace" font-size="21" fill="#ece9e3" text-anchor="middle">hand + board</text>
-            <text x="400" y="82" font-family="monospace" font-size="18" fill="#8f8c84" text-anchor="middle">opponent hidden</text>
-
-            <!-- branches -->
-            <g stroke="#7dd3c0" stroke-width="1.3" opacity=".75" fill="none">
-              <path d="M400 92 C400 130 170 120 150 158"/>
-              <path d="M400 92 V158"/>
-              <path d="M400 92 C400 130 630 120 650 158"/>
-            </g>
-            <g fill="#7dd3c0">
-              <path d="M145 152 l8 8 -11 3 z"/><path d="M395 152 l5 8 5 -8 z"/><path d="M655 152 l-8 8 11 3 z"/>
-            </g>
-
-            <!-- actions -->
-            <g font-family="monospace" font-size="21" text-anchor="middle">
-              <rect x="80" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="150" y="186" fill="#cbc8c2">fold</text>
-              <rect x="330" y="160" width="140" height="40" rx="8" fill="none" stroke="rgba(255,255,255,.38)"/>
-              <text x="400" y="186" fill="#cbc8c2">call</text>
-              <rect x="580" y="160" width="140" height="40" rx="8" fill="rgba(125,211,192,.14)" stroke="#7dd3c0"/>
-              <text x="650" y="186" fill="#ece9e3">raise</text>
-            </g>
-
-            <!-- rollout fans -->
-            <g stroke="rgba(255,255,255,.26)" stroke-width="1" fill="none">
-              <path d="M150 200 L96 288 M150 200 L123 288 M150 200 L150 288 M150 200 L177 288 M150 200 L204 288"/>
-              <path d="M400 200 L346 288 M400 200 L373 288 M400 200 L400 288 M400 200 L427 288 M400 200 L454 288"/>
-            </g>
-            <g stroke="rgba(125,211,192,.45)" stroke-width="1" fill="none">
-              <path d="M650 200 L596 288 M650 200 L623 288 M650 200 L650 288 M650 200 L677 288 M650 200 L704 288"/>
-            </g>
-            <g fill="#8f8c84">
-              <circle cx="96" cy="294" r="4"/><circle cx="123" cy="294" r="4"/><circle cx="150" cy="294" r="4"/>
-              <circle cx="177" cy="294" r="4"/><circle cx="204" cy="294" r="4"/>
-              <circle cx="346" cy="294" r="4"/><circle cx="373" cy="294" r="4"/><circle cx="400" cy="294" r="4"/>
-              <circle cx="427" cy="294" r="4"/><circle cx="454" cy="294" r="4"/>
-            </g>
-            <g fill="#7dd3c0">
-              <circle cx="596" cy="294" r="4"/><circle cx="623" cy="294" r="4"/><circle cx="650" cy="294" r="4"/>
-              <circle cx="677" cy="294" r="4"/><circle cx="704" cy="294" r="4"/>
-            </g>
-
-            <text x="400" y="336" font-family="monospace" font-size="19" fill="#8f8c84" text-anchor="middle">
-              deal the unseen cards · play to showdown · hundreds of times per path
-            </text>
-
-            <!-- returns -->
-            <line x1="60" y1="368" x2="740" y2="368" stroke="rgba(255,255,255,.42)"/>
-            <text x="60" y="392" font-family="monospace" font-size="18" fill="#8f8c84">average chip return</text>
-            <g>
-              <rect x="100" y="404" width="42" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
-              <rect x="350" y="404" width="86" height="9" rx="4" fill="rgba(255,255,255,.38)"/>
-              <rect x="600" y="404" width="128" height="9" rx="4" fill="#7dd3c0"/>
-            </g>
-            <text x="650" y="440" font-family="monospace" font-size="19" fill="#7dd3c0" text-anchor="middle">take this branch</text>
-          </svg>
-          <span class="veil"></span>
-          <span class="peek">View repository ↗</span>
-        </a>
-        <div class="proj-body">
-          <div class="proj-idx">03 — AI</div>
-          <div class="kicker">CS 5100 · decision-making under hidden information</div>
-          <h3><a href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">Texas Hold'em Agents</a></h3>
-          <div class="role-note">Two-person project · engine, agents and evaluation built from scratch</div>
-          <p>
-            Chess is tractable because you can see the board; poker is not. We built a two-player
-            Hold'em engine from scratch and put five agents on it — random, never-fold, rule-based, a
-            <b>Monte Carlo hand-strength estimator</b>, and an <b>MCTS</b> player that simulates
-            forward and takes the branch with the best average return.
-          </p>
-          <p>
-            The finding was about the <b>benchmark</b>, not the agents. Our first harness scored a fold
-            as a loss, so over 10,000 hands the rule-based player came out level with one that never
-            folds — which cannot be true. The metric was wrong: counting folds as losses made
-            disciplined folding invisible. Rebuilt around chip depletion, the ranking inverted. MCTS
-            then placed third, behind the simpler estimator and against our own hypothesis — and we
-            reported that rather than tuning until the numbers agreed with us.
-          </p>
-          <div class="stack"><span>Python</span><span>Monte Carlo tree search</span><span>Hand-strength estimation</span><span>Imperfect information</span><span>Benchmark design</span></div>
-          <a class="golink" href="https://github.com/maxwell142857/texas_holdem" target="_blank" rel="noopener">
-            github.com/maxwell142857/texas_holdem
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12L12 4M12 4H6M12 4v6"/></svg>
           </a>
         </div>
